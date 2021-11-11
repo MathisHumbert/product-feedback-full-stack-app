@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "compile:sass": "sass --watch public/scss/main:public/css"
+    "compile-sass": "sass --watch public/scss:public/css"
   },
   "keywords": [],
   "author": "",
