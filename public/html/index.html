@@ -1,48 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Product feedback app</title>
-</head>
-<body>
-  Frontend Mentor
-  Feedback Board
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  <!-- Sidebar -->
-  All
-  UI
-  UX
-  Enhancement
-  Bug
-  Feature
+    <title>Frontend Mentor | Product feedback app</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <nav>
+      <!-- logo -->
+      <div class="nav-logo-container">
+        <h2></h2>
+        <p class="body2"></p>
+        <img src="../assets/shared/mobile/icon-hamburger.svg" alt="" />
+      </div>
+      <!-- sidebar -->
+      <div class="nav-sidebar">
+        <!-- category -->
+        <div class="nav-sidebar-category">
+          <button class="category-btn">all</button>
+          <button class="category-btn">ui</button>
+          <button class="category-btn">ux</button>
+          <button class="category-btn">enhancement</button>
+          <button class="category-btn">bug</button>
+          <button class="category-btn">feature</button>
+        </div>
+        <div class="nav-sidebar-roadmap">
+          <div class="header">
+            <h3>Roadmap</h3>
+            <a href="#">view</a>
+          </div>
+          <!-- roadmap -->
+          <div class="roadmap-items">
+            <div class="roadmap-item">
+              <div class="circle orange"></div>
+              <p class="body1">Planned</p>
+              <p class="body1 roadmap-number"></p>
+            </div>
+            <div class="roadmap-item">
+              <div class="circle purple"></div>
+              <p class="body1">In-Progress</p>
+              <p class="body1 roadmap-number"></p>
+            </div>
+            <div class="roadmap-item">
+              <div class="circle blue"></div>
+              <p class="body1">Live</p>
+              <p class="body1 roadmap-number"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-  Roadmap
-  View
+    <!-- main -->
+    <main>
+      <!-- sort headet -->
+      <header class="sort-header">
+        <!-- logo -->
+        <div class="sort-header-logo-container">
+          <img src="../assets/suggestions/icon-suggestions.svg" alt="" />
+          <h3>6 Suggestions</h3>
+        </div>
+        <!-- show all sorts -->
+        <div class="sort-header-suggestions-container">
+          <h4>Sort by: Most Upvotes</h4>
+          <img src="../assets/shared/icon-arrow-down.svg" alt="" />
+          <div class="suggestions-container">
+            <p class="body-1">Most upvotes</p>
+            <p class="body-1">Least upvotes</p>
+            <p class="body-1">Most comments</p>
+            <p class="body-1">Least comments</p>
+          </div>
+        </div>
+        <!-- feedback link -->
+        <a href="#"><button class="button1">Add Feedback</button></a>
+      </header>
 
-  Planned <!-- Add number here -->
-  In-Progress <!-- Add number here -->
-  Live <!-- Add number here -->
-
-  <!-- Sidebar end -->
-
-  <!-- Add number of suggestions here --> Suggestions
-  Sort by:
-  Most upvotes
-  Least upvotes
-  Most comments
-  Least comments
-
-  Add Feedback
-
-  <!-- No feedback -->
-  There is no feedback yet. Got a suggestion? Found a bug that needs to be squashed? We love 
-  hearing about new ideas to improve our app.
-
-  Add Feedback
-  <!-- No feedback end -->
-</body>
+      <!-- all feedback -->
+      <serction class="all-feedbacks">
+        <div class="single-feedback">
+          <h3>Add tags for solutions</h3>
+          <p class="body1">
+            Easier to search for solutions based on a specific stack.
+          </p>
+          <button class="category-btn">enhancement</button>
+          <button class="upvotes-btn">
+            <img src="../assets/shared/icon-arrow-up.svg" alt="" />
+            122
+          </button>
+          <div class="votes-container">
+            <img src="../assets/shared/icon-comments.svg" alt="" />
+            <p class="body1 bold">2</p>
+          </div>
+        </div>
+      </serction>
+    </main>
+    <!-- 
+    There is no feedback yet. Got a suggestion? Found a bug that needs to be
+    squashed? We love hearing about new ideas to improve our app. Add Feedback
+     -->
+  </body>
 </html>
