@@ -1,0 +1,21 @@
+{
+  "name": "product-feedback-full-stack-app",
+  "version": "1.0.0",
+  "description": "![Design preview for the Product feedback app coding challenge](./preview.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^6.0.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
