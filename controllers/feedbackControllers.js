@@ -1,5 +1,4 @@
 const Feedback = require('../models/Feedback');
-
 const CustomError = require('../errors');
 
 const getAllFeedback = async (req, res) => {
@@ -43,9 +42,19 @@ const editFeedback = async (req, res) => {
 
   res.status(200).json(feedback);
 };
+
 const deleteAllFeedback = async (req, res) => {
   const feedback = await Feedback.findOneAndRemove({ _id: req.params.id });
   res.status(200).json('item was removed');
+};
+
+const getComments = async (req, res) => {
+  const feedback = await Feedback.findOne({ _id: req.params.id }).select(
+    'comments'
+  );
+  console.log(feedback.comments);
+
+  res.status(200).json(feedback.comments);
 };
 
 module.exports = {
@@ -54,4 +63,5 @@ module.exports = {
   createFeedback,
   editFeedback,
   deleteAllFeedback,
+  getComments,
 };
