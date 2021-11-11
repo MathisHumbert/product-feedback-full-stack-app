@@ -1,15 +1,20 @@
 const Feedback = require('../models/Feedback');
+const { StatusCodes } = require('http-status-codes');
+const CustomError = require('../errors');
 
 const getAllFeedback = async (req, res) => {
   const feedbacks = await Feedback.find({});
-  res.status(200).json(feedbacks);
+  res.status(200).json({ feedbacks, num: feedbacks.length });
 };
 
 const getSingleFeedback = async (req, res) => {
-  res.send('get single feedback');
+  const feedback = await Feedback.findOne({ _id: req.params.id });
+  res.status(200).json(feedback);
 };
 
 const createFeedback = async (req, res) => {
+  console.log(req.body);
+
   res.send('create feedback');
 };
 

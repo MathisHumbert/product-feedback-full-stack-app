@@ -8,7 +8,7 @@ const FeedbackSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, 'Please provide category name'],
-    enum: ['ui', 'ux', 'enchancement', 'bug', 'feature'],
+    enum: ['ui', 'ux', 'enhancement', 'bug', 'feature'],
   },
   upvotes: {
     type: Number,
