@@ -1,1 +1,51 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* {
+  font-family: 'Jost', sans-serif;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+.body2 {
+  font-size: 13px;
+}
+
+nav {
+  width: 100%;
+  background: linear-gradient(50deg, #28a7ed 0%, #b43cd5 40%, #a337f6 60%, #e84d70 100%);
+  padding: 0 24px;
+  height: 72px;
+}
+
+.nav-logo-container {
+  width: 100%;
+  position: relative;
+  color: #fff;
+}
+
+.nav-logo-container img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.nav-sidebar {
+  display: fixed;
+  position: absolute;
+  top: 72px;
+  right: 0;
+  height: calc(100vh - 72px);
+  background: #f7f8fd;
+}
+/*# sourceMappingURL=style.css.map */
