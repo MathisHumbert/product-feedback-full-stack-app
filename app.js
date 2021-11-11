@@ -14,6 +14,8 @@ const feedbackRouter = require('./routes/feedbackRouter');
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Hello world');
 });

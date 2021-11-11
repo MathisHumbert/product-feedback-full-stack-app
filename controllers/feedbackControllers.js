@@ -1,5 +1,5 @@
 const Feedback = require('../models/Feedback');
-const { StatusCodes } = require('http-status-codes');
+
 const CustomError = require('../errors');
 
 const getAllFeedback = async (req, res) => {
@@ -13,16 +13,39 @@ const getSingleFeedback = async (req, res) => {
 };
 
 const createFeedback = async (req, res) => {
-  console.log(req.body);
+  const { title, category, description } = req.body;
 
-  res.send('create feedback');
+  if (!title || !category || !description) {
+    throw new CustomError.BadRequestError(
+      'title, category and description fields cannot be empty'
+    );
+  }
+
+  const feedback = await Feedback.create(req.body);
+
+  res.status(201).json(feedback);
 };
 
 const editFeedback = async (req, res) => {
-  res.send('edit feedback');
+  const { title, category, description } = req.body;
+
+  if (!title || !category || !description) {
+    throw new CustomError.BadRequestError(
+      'title, category and description fields cannot be empty'
+    );
+  }
+
+  const feedback = await Feedback.findOneAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    { new: true, runValidators: true }
+  );
+
+  res.status(200).json(feedback);
 };
 const deleteAllFeedback = async (req, res) => {
-  res.send('delete feedback');
+  const feedback = await Feedback.findOneAndRemove({ _id: req.params.id });
+  res.status(200).json('item was removed');
 };
 
 module.exports = {
