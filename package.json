@@ -4,7 +4,8 @@
   "description": "![Design preview for the Product feedback app coding challenge](./preview.jpg)",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "compile:sass": "sass --watch public/scss/main:public/css"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "mongoose": "^6.0.12"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "sass": "^1.43.4"
   }
 }
