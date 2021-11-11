@@ -1,5 +1,8 @@
+const Feedback = require('../models/Feedback');
+
 const getAllFeedback = async (req, res) => {
-  res.send('get all feedback');
+  const feedbacks = await Feedback.find({});
+  res.status(200).json(feedbacks);
 };
 
 const getSingleFeedback = async (req, res) => {
