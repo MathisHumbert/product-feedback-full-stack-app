@@ -1,0 +1,41 @@
+.sort-header {
+  background: $color-dark-blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 0 24px;
+
+  &-logo-container {
+    display: none;
+  }
+
+  &-sug-container {
+    .sort-click {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f2f4fe;
+
+      .regular {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.sug-container {
+  position: absolute;
+  top: 140px;
+  background: $color-white;
+  display: none;
+  border-radius: 10px;
+
+  p {
+    border-bottom: 1px solid rgba(58, 67, 116, 0.15);
+    padding: 10px;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

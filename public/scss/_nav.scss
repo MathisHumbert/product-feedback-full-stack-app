@@ -9,6 +9,8 @@ nav {
   );
   padding: 0 24px;
   height: 72px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo-container {
@@ -26,21 +28,99 @@ nav {
 }
 
 .nav-sidebar {
-  display: fixed;
-  position: absolute;
+  position: fixed;
   top: 72px;
-  right: 0;
-  height: calc(100vh - 72px);
-  background: $color-background;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in-out;
 
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background: rgba(0, 0, 0, 0.5);
-  //   z-index: -1;
-  // }
+  &.open {
+    transform: translateX(0);
+  }
+
+  &-container {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    background: $color-background;
+    padding: 2rem 1rem;
+  }
+
+  &-category,
+  &-roadmap {
+    background: $color-white;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    max-width: 233px;
+  }
+
+  &-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &-roadmap {
+    margin-top: 2rem;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      h3 {
+        color: $color-special-black;
+      }
+
+      a {
+        color: $color-blue;
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .roadmap-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .roadmap-item {
+        display: flex;
+        justify-content: space-between;
+
+        .container {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+
+        .body1 {
+          color: $color-grey;
+        }
+
+        .roadmap-number {
+          font-weight: 700;
+        }
+      }
+
+      .circle {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+
+        &.orange {
+          background: $color-orange;
+        }
+        &.purple {
+          background: $color-purple;
+        }
+        &.blue {
+          background: $color-light-blue;
+        }
+      }
+    }
+  }
 }

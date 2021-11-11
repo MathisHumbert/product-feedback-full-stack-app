@@ -8,6 +8,49 @@ h2 {
   font-size: 15px;
 }
 
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 13px;
+}
+
+.body1 {
+  font-size: 16px;
+}
+
 .body2 {
   font-size: 13px;
+}
+
+button {
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.category-btn {
+  background: #f2f4ff;
+  font-size: 13px;
+
+  text-transform: capitalize;
+  padding: 7.5px 15px;
+  color: $color-blue;
+}
+
+.button1 {
+  background: $color-purple;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: $color-white;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

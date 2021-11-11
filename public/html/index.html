@@ -26,36 +26,44 @@
       </div>
       <!-- sidebar -->
       <div class="nav-sidebar">
-        <!-- category -->
-        <div class="nav-sidebar-category">
-          <button class="category-btn">all</button>
-          <button class="category-btn">ui</button>
-          <button class="category-btn">ux</button>
-          <button class="category-btn">enhancement</button>
-          <button class="category-btn">bug</button>
-          <button class="category-btn">feature</button>
-        </div>
-        <div class="nav-sidebar-roadmap">
-          <div class="header">
-            <h3>Roadmap</h3>
-            <a href="#">view</a>
+        <div class="nav-sidebar-container">
+          <!-- category -->
+          <div class="nav-sidebar-category">
+            <button class="category-btn">all</button>
+            <button class="category-btn uppercase">ui</button>
+            <button class="category-btn uppercase">ux</button>
+            <button class="category-btn">enhancement</button>
+            <button class="category-btn">bug</button>
+            <button class="category-btn">feature</button>
           </div>
-          <!-- roadmap -->
-          <div class="roadmap-items">
-            <div class="roadmap-item">
-              <div class="circle orange"></div>
-              <p class="body1">Planned</p>
-              <p class="body1 roadmap-number"></p>
+          <div class="nav-sidebar-roadmap">
+            <div class="header">
+              <h3>Roadmap</h3>
+              <a href="#">View</a>
             </div>
-            <div class="roadmap-item">
-              <div class="circle purple"></div>
-              <p class="body1">In-Progress</p>
-              <p class="body1 roadmap-number"></p>
-            </div>
-            <div class="roadmap-item">
-              <div class="circle blue"></div>
-              <p class="body1">Live</p>
-              <p class="body1 roadmap-number"></p>
+            <!-- roadmap -->
+            <div class="roadmap-items">
+              <div class="roadmap-item">
+                <div class="container">
+                  <div class="circle orange"></div>
+                  <p class="body1">Planned</p>
+                </div>
+                <p class="body1 roadmap-number">2</p>
+              </div>
+              <div class="roadmap-item">
+                <div class="container">
+                  <div class="circle purple"></div>
+                  <p class="body1">In-Progress</p>
+                </div>
+                <p class="body1 roadmap-number">3</p>
+              </div>
+              <div class="roadmap-item">
+                <div class="container">
+                  <div class="circle blue"></div>
+                  <p class="body1">Live</p>
+                </div>
+                <p class="body1 roadmap-number">1</p>
+              </div>
             </div>
           </div>
         </div>
@@ -64,7 +72,7 @@
 
     <!-- main -->
     <main>
-      <!-- sort headet -->
+      <!-- sort header -->
       <header class="sort-header">
         <!-- logo -->
         <div class="sort-header-logo-container">
@@ -72,10 +80,12 @@
           <h3>6 Suggestions</h3>
         </div>
         <!-- show all sorts -->
-        <div class="sort-header-suggestions-container">
-          <h4>Sort by: Most Upvotes</h4>
-          <img src="../assets/shared/icon-arrow-down.svg" alt="" />
-          <div class="suggestions-container">
+        <div class="sort-header-sug-container">
+          <div class="sort-click">
+            <h4><span class="regular"> Sort by :</span> Most Upvotes</h4>
+            <img src="../assets/shared/icon-arrow-down-white.svg" alt="" />
+          </div>
+          <div class="sug-container">
             <p class="body-1">Most upvotes</p>
             <p class="body-1">Least upvotes</p>
             <p class="body-1">Most comments</p>
@@ -83,27 +93,34 @@
           </div>
         </div>
         <!-- feedback link -->
-        <a href="#"><button class="button1">Add Feedback</button></a>
+        <a href="#"
+          ><button class="button1">
+            <img src="../assets/shared/icon-plus.svg" alt="" />
+            Add Feedback
+          </button></a
+        >
       </header>
 
       <!-- all feedback -->
-      <serction class="all-feedbacks">
+      <section class="all-feedbacks">
         <div class="single-feedback">
           <h3>Add tags for solutions</h3>
           <p class="body1">
             Easier to search for solutions based on a specific stack.
           </p>
           <button class="category-btn">enhancement</button>
-          <button class="upvotes-btn">
-            <img src="../assets/shared/icon-arrow-up.svg" alt="" />
-            122
-          </button>
-          <div class="votes-container">
-            <img src="../assets/shared/icon-comments.svg" alt="" />
-            <p class="body1 bold">2</p>
+          <div class="container">
+            <button class="upvotes-btn">
+              <img src="../assets/shared/icon-arrow-up.svg" alt="" />
+              122
+            </button>
+            <div class="votes-container">
+              <img src="../assets/shared/icon-comments.svg" alt="" />
+              <p class="body1">2</p>
+            </div>
           </div>
         </div>
-      </serction>
+      </section>
     </main>
     <!-- 
     There is no feedback yet. Got a suggestion? Found a bug that needs to be
