@@ -1,32 +1,41 @@
 const Feedback = require('../models/Feedback');
 const CustomError = require('../errors');
-const { db } = require('../models/Feedback');
 
 const getAllFeedback = async (req, res) => {
-  const sort = req.headers.sort;
+  let { sort, filter } = req.headers;
 
-  if (!sort) {
-    const feedbacks = await Feedback.find({}).sort('-upvotes');
+  if (filter === 'all') {
+    filter = undefined;
+  }
+
+  if (sort === 'Most Upvotes') {
+    const feedbacks = await Feedback.find(
+      filter === undefined ? {} : { category: filter }
+    ).sort('-upvotes');
     return res.status(200).json({ feedbacks, num: feedbacks.length });
   }
 
-  if (sort === 'most upvotes') {
-    const feedbacks = await Feedback.find({}).sort('-upvotes');
+  if (sort === 'Least Upvotes') {
+    const feedbacks = await Feedback.find(
+      filter === undefined ? {} : { category: filter }
+    ).sort('upvotes');
     return res.status(200).json({ feedbacks, num: feedbacks.length });
   }
-  if (sort === 'least upvotes') {
-    const feedbacks = await Feedback.find({}).sort('upvotes');
-    return res.status(200).json({ feedbacks, num: feedbacks.length });
-  }
-  if (sort === 'most comments') {
-    let feedbacks = await Feedback.find({});
+
+  if (sort === 'Most Comments') {
+    let feedbacks = await Feedback.find(
+      filter === undefined ? {} : { category: filter }
+    );
     feedbacks = feedbacks.sort((a, b) => {
       return b.comments.length - a.comments.length;
     });
     return res.status(200).json({ feedbacks, num: feedbacks.length });
   }
-  if (sort === 'least comments') {
-    let feedbacks = await Feedback.find({});
+
+  if (sort === 'Least Comments') {
+    let feedbacks = await Feedback.find(
+      filter === undefined ? {} : { category: filter }
+    );
     feedbacks = feedbacks.sort((a, b) => {
       return a.comments.length - b.comments.length;
     });
@@ -80,7 +89,6 @@ const getComments = async (req, res) => {
   const feedback = await Feedback.findOne({ _id: req.params.id }).select(
     'comments'
   );
-  console.log(feedback.comments);
 
   res.status(200).json(feedback.comments);
 };

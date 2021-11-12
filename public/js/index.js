@@ -4,34 +4,44 @@ sidebarBtn.addEventListener('click', toggleSidebar);
 
 const sortBtn = document.querySelector('.sort-click');
 const sortDOM = document.querySelector('.sug-container');
-const sortItem = document.querySelectorAll('.single-sort-container');
+const sortItem = document.querySelectorAll('.single-sort');
+const sortText = document.querySelector('.sort-text');
 const allFeedback = document.querySelector('.all-feedbacks');
 
 sortBtn.addEventListener('click', toggleSort);
-sortItem.forEach((item) => item.addEventListener('click', showSortSelected));
+sortItem.forEach((item) =>
+  item.addEventListener('click', displaySortedFeedbacks)
+);
 
 function toggleSort() {
   sortDOM.classList.toggle('open');
 }
 
-async function showSortSelected(e) {
-  sortItem.forEach((item) => {
-    item.classList.remove('open');
-  });
-  e.target.parentElement.classList.add('open');
+async function displaySortedFeedbacks(e) {
+  const sort = e.target.textContent;
+
+  sortHandler(sort);
+
+  sortDOM.classList.remove('open');
 
   try {
+    const filter =
+      localStorage.getItem('filterFeedback') === null
+        ? 'all'
+        : localStorage.getItem('filterFeedback');
+
     const { data } = await axios.get('/api/v1/feedbacks', {
       headers: {
+        filter,
         sort: e.target.textContent,
       },
     });
+
     allFeedback.innerHTML = createFeedback(data.feedbacks);
+    localStorage.setItem('sortFeedback', e.target.textContent);
   } catch (error) {
     console.log(error);
   }
-  // sort by the value
-  // add ttje value to the text sort by:
 }
 
 //const allFeedback = document.querySelector('.all-feedbacks');
@@ -41,14 +51,44 @@ const liveNumber = document.querySelector('.live-number');
 
 const displayAllFeedbacks = async () => {
   try {
-    const { data } = await axios.get('/api/v1/feedbacks');
+    const sort =
+      localStorage.getItem('sortFeedback') === null
+        ? 'Most Upvotes'
+        : localStorage.getItem('sortFeedback');
+
+    const filter =
+      localStorage.getItem('filterFeedback') === null
+        ? 'all'
+        : localStorage.getItem('filterFeedback');
+
+    const { data } = await axios.get('/api/v1/feedbacks', {
+      headers: {
+        filter,
+        sort,
+      },
+    });
+
     allFeedback.innerHTML = createFeedback(data.feedbacks);
+
+    sortHandler(sort);
   } catch (error) {
     console.log(error);
   }
 };
 
 displayAllFeedbacks();
+
+function sortHandler(sort) {
+  sortItem.forEach((item) => {
+    if (item.textContent == sort) {
+      item.parentElement.classList.add('open');
+    } else {
+      item.parentElement.classList.remove('open');
+    }
+  });
+
+  sortText.innerHTML = `<span class="regular"> Sort by :</span> ${sort}`;
+}
 
 const createFeedback = (feedbacks) => {
   return feedbacks
@@ -74,3 +114,29 @@ const createFeedback = (feedbacks) => {
     })
     .join('');
 };
+
+const filterBtn = document.querySelectorAll('.filter-btn');
+
+filterBtn.forEach((btn) =>
+  btn.addEventListener('click', displayFilteredFeedbacks)
+);
+
+async function displayFilteredFeedbacks(e) {
+  const sort =
+    localStorage.getItem('sortFeedback') === null
+      ? 'Most Upvotes'
+      : localStorage.getItem('sortFeedback');
+
+  try {
+    const { data } = await axios.get('/api/v1/feedbacks', {
+      headers: {
+        filter: e.target.textContent,
+        sort,
+      },
+    });
+    allFeedback.innerHTML = createFeedback(data.feedbacks);
+    localStorage.setItem('filterFeedback', e.target.textContent);
+  } catch (error) {
+    console.log(error);
+  }
+}
