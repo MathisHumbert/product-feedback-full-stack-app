@@ -16,6 +16,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(express.json());
 app.use(express.static('./public/html'));
+app.use(express.static('./public'));
 
 app.get('/', (req, res) => {
   res.send('Hello world');

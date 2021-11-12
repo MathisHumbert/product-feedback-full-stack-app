@@ -30,18 +30,22 @@ nav {
 .nav-sidebar {
   position: fixed;
   top: 72px;
+  bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 3;
   visibility: hidden;
   z-index: 10;
+
   &.open {
     visibility: visible;
   }
 
   &-container {
-    position: absolute;
+    position: fixed;
     right: 0;
     height: 100vh;
     background: $color-background;

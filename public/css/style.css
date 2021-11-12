@@ -95,10 +95,13 @@ nav {
 .nav-sidebar {
   position: fixed;
   top: 72px;
+  bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 3;
   visibility: hidden;
   z-index: 10;
 }
@@ -108,7 +111,7 @@ nav {
 }
 
 .nav-sidebar-container {
-  position: absolute;
+  position: fixed;
   right: 0;
   height: 100vh;
   background: #f7f8fd;
@@ -324,6 +327,14 @@ nav {
 
 .all-feedbacks {
   padding: 2rem 24px 3rem 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
 }
 
 .single-feedback {
@@ -332,10 +343,18 @@ nav {
   padding: 2rem 20px;
 }
 
-.single-feedback h3 {
+.single-feedback a {
   font-size: 13px;
   color: #3a4374;
+  text-decoration: none;
+  font-weight: 700;
   margin-bottom: 1rem;
+  -webkit-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
+}
+
+.single-feedback a:hover {
+  color: #4661e6;
 }
 
 .single-feedback .body1 {
@@ -346,6 +365,7 @@ nav {
 .single-feedback .category-btn {
   margin-top: 10px;
   margin-bottom: 1rem;
+  cursor: inherit;
 }
 
 .single-feedback .container {
@@ -373,6 +393,12 @@ nav {
   font-size: 13px;
   color: #3a4374;
   font-weight: bold;
+  -webkit-transition: background 0.4s ease-in-out;
+  transition: background 0.4s ease-in-out;
+}
+
+.upvotes-btn:hover {
+  background: #cfd7ff;
 }
 
 .votes-container {
