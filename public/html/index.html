@@ -22,7 +22,11 @@
       <div class="nav-logo-container">
         <h2>Frontend Mentor</h2>
         <p class="body2">Feedback Board</p>
-        <img src="../assets/shared/mobile/icon-hamburger.svg" alt="" />
+        <img
+          src="../assets/shared/mobile/icon-hamburger.svg"
+          class="sidebar-button"
+          alt="sibar-cursor"
+        />
       </div>
       <!-- sidebar -->
       <div class="nav-sidebar">
@@ -86,10 +90,22 @@
             <img src="../assets/shared/icon-arrow-down-white.svg" alt="" />
           </div>
           <div class="sug-container">
-            <p class="body-1">Most upvotes</p>
-            <p class="body-1">Least upvotes</p>
-            <p class="body-1">Most comments</p>
-            <p class="body-1">Least comments</p>
+            <div class="single-sort-container">
+              <p class="body1">most upvotes</p>
+              <img src="../assets/shared/icon-check.svg" alt="check" />
+            </div>
+            <div class="single-sort-container">
+              <p class="body1">least upvotes</p>
+              <img src="../assets/shared/icon-check.svg" alt="check" />
+            </div>
+            <div class="single-sort-container">
+              <p class="body1">most comments</p>
+              <img src="../assets/shared/icon-check.svg" alt="check" />
+            </div>
+            <div class="single-sort-container">
+              <p class="body1">least comments</p>
+              <img src="../assets/shared/icon-check.svg" alt="check" />
+            </div>
           </div>
         </div>
         <!-- feedback link -->
@@ -127,4 +143,6 @@
     squashed? We love hearing about new ideas to improve our app. Add Feedback
      -->
   </body>
+
+  <script src="../js/index.js"></script>
 </html>

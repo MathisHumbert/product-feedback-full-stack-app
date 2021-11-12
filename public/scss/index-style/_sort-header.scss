@@ -14,9 +14,16 @@
       align-items: center;
       gap: 10px;
       color: #f2f4fe;
+      cursor: pointer;
+      @include basicTransition($value: opacity);
+
+      &:hover {
+        opacity: 0.75;
+      }
 
       .regular {
         font-weight: 400;
+        cursor: initial;
       }
     }
   }
@@ -25,13 +32,44 @@
 .sug-container {
   position: absolute;
   top: 140px;
-  background: $color-white;
-  display: none;
+  @include whiteAndShadow;
   border-radius: 10px;
+  height: 0;
+  width: 200px;
+  overflow: hidden;
+  @include basicTransition($value: height);
 
-  p {
+  &.open {
+    height: 175px;
+  }
+
+  .single-sort-container {
     border-bottom: 1px solid rgba(58, 67, 116, 0.15);
-    padding: 10px;
+    padding: 10px 20px;
+    @include flexBasic;
+
+    .body1 {
+      color: $color-grey;
+      text-transform: capitalize;
+      cursor: pointer;
+      @include basicTransition($value: color);
+
+      &:hover {
+        color: $color-purple;
+      }
+    }
+
+    img {
+      opacity: 0;
+      @include basicTransition($value: opacity);
+    }
+
+    &.open {
+      img {
+        opacity: 1;
+      }
+    }
+
     &:last-child {
       border-bottom: none;
     }
