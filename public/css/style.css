@@ -231,6 +231,24 @@ nav {
   background: #62bcfa;
 }
 
+.filter-btn {
+  -webkit-transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
+}
+
+.filter-btn.active {
+  background: #4661e6;
+  color: #fff;
+}
+
+.filter-btn.active:hover {
+  background: #4661e6;
+}
+
+.filter-btn:hover {
+  background: #cfd7ff;
+}
+
 .sort-header {
   background: #373f68;
   display: -webkit-box;

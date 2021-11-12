@@ -33,7 +33,7 @@ async function displaySortedFeedbacks(e) {
     const { data } = await axios.get('/api/v1/feedbacks', {
       headers: {
         filter,
-        sort: e.target.textContent,
+        sort,
       },
     });
 
@@ -71,6 +71,7 @@ const displayAllFeedbacks = async () => {
     allFeedback.innerHTML = createFeedback(data.feedbacks);
 
     sortHandler(sort);
+    filterHandler(filter);
   } catch (error) {
     console.log(error);
   }
@@ -122,6 +123,10 @@ filterBtn.forEach((btn) =>
 );
 
 async function displayFilteredFeedbacks(e) {
+  const filter = e.target.textContent;
+
+  filterHandler(filter);
+
   const sort =
     localStorage.getItem('sortFeedback') === null
       ? 'Most Upvotes'
@@ -130,7 +135,7 @@ async function displayFilteredFeedbacks(e) {
   try {
     const { data } = await axios.get('/api/v1/feedbacks', {
       headers: {
-        filter: e.target.textContent,
+        filter,
         sort,
       },
     });
@@ -139,4 +144,14 @@ async function displayFilteredFeedbacks(e) {
   } catch (error) {
     console.log(error);
   }
+}
+
+function filterHandler(filter) {
+  filterBtn.forEach((item) => {
+    if (item.textContent == filter) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
 }

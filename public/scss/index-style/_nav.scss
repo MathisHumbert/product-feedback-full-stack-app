@@ -138,3 +138,20 @@ nav {
     }
   }
 }
+
+.filter-btn {
+  transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
+
+  &.active {
+    background: $color-blue;
+    color: $color-white;
+
+    &:hover {
+      background: $color-blue;
+    }
+  }
+
+  &:hover {
+    background: #cfd7ff;
+  }
+}
