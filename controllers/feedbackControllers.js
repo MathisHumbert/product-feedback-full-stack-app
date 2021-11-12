@@ -1,9 +1,37 @@
 const Feedback = require('../models/Feedback');
 const CustomError = require('../errors');
+const { db } = require('../models/Feedback');
 
 const getAllFeedback = async (req, res) => {
-  const feedbacks = await Feedback.find({});
-  res.status(200).json({ feedbacks, num: feedbacks.length });
+  const sort = req.headers.sort;
+
+  if (!sort) {
+    const feedbacks = await Feedback.find({}).sort('-upvotes');
+    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  }
+
+  if (sort === 'most upvotes') {
+    const feedbacks = await Feedback.find({}).sort('-upvotes');
+    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  }
+  if (sort === 'least upvotes') {
+    const feedbacks = await Feedback.find({}).sort('upvotes');
+    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  }
+  if (sort === 'most comments') {
+    let feedbacks = await Feedback.find({});
+    feedbacks = feedbacks.sort((a, b) => {
+      return b.comments.length - a.comments.length;
+    });
+    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  }
+  if (sort === 'least comments') {
+    let feedbacks = await Feedback.find({});
+    feedbacks = feedbacks.sort((a, b) => {
+      return a.comments.length - b.comments.length;
+    });
+    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  }
 };
 
 const getSingleFeedback = async (req, res) => {

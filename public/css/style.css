@@ -167,6 +167,12 @@ nav {
   color: #4661e6;
   font-size: 13px;
   font-weight: 600;
+  -webkit-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
+}
+
+.nav-sidebar-roadmap .header a:hover {
+  color: #8397f8;
 }
 
 .nav-sidebar-roadmap .roadmap-items {

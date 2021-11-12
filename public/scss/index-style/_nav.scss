@@ -88,6 +88,11 @@ nav {
         color: $color-blue;
         font-size: 13px;
         font-weight: 600;
+        @include basicTransition($value: color);
+
+        &:hover {
+          color: #8397f8;
+        }
       }
     }
 
