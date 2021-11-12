@@ -46,7 +46,7 @@ button:focus {
 }
 
 .category-btn {
-  background: #f2f4ff;
+  background: #f2f4fe;
   font-size: 13px;
   text-transform: capitalize;
   padding: 7.5px 15px;
@@ -297,12 +297,12 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .upvotes-btn {

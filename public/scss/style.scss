@@ -8,8 +8,9 @@ body {
   background: #f7f8fd;
 }
 
-@import './color';
-@import './font';
-@import './nav';
-@import './sort-header';
-@import './feedbacks';
+@import './global-var/variables';
+@import './global-var/font';
+@import './global-var/mixins';
+@import './index-style/nav';
+@import './index-style/sort-header';
+@import './index-style/feedbacks';
