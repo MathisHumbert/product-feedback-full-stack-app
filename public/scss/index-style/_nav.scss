@@ -1,5 +1,12 @@
 nav {
   width: 100%;
+  height: 72px;
+}
+
+.nav-logo-container {
+  width: 100%;
+  height: 100%;
+  padding: 0 $padding;
   background: linear-gradient(
     50deg,
     rgba(40, 167, 237, 1) 0%,
@@ -7,23 +14,22 @@ nav {
     rgba(163, 55, 246, 1) 60%,
     rgba(232, 77, 112, 1) 100%
   );
-  padding: 0 $padding;
-  height: 72px;
   display: flex;
-  align-items: center;
-}
-
-.nav-logo-container {
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   color: $color-white;
 
   img {
     position: absolute;
-    right: 0;
+    right: $padding;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+  }
+
+  .body2 {
+    opacity: 0.75;
   }
 }
 
@@ -38,7 +44,6 @@ nav {
   background: rgba(0, 0, 0, 0.5);
   z-index: 3;
   visibility: hidden;
-  z-index: 10;
 
   &.open {
     visibility: visible;
@@ -153,5 +158,74 @@ nav {
 
   &:hover {
     background: #cfd7ff;
+  }
+}
+
+@include tabletScreen {
+  nav {
+    @include maxWidth;
+    max-height: 178px;
+    height: 178px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .nav-logo-container {
+    height: 100%;
+    width: calc(100% - 1rem);
+    max-height: 178px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    border-radius: 10px;
+
+    img {
+      display: none;
+    }
+  }
+
+  .nav-sidebar {
+    position: inherit;
+    width: 100%;
+    height: 100%;
+    max-height: 178px;
+    background: transparent;
+    visibility: visible;
+
+    &-container {
+      position: inherit;
+      right: inherit;
+      width: 100%;
+      height: 100%;
+      max-height: 178px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      background: transparent;
+      padding: 0;
+      transform: translateX(0%);
+    }
+
+    &-category,
+    &-roadmap {
+      background: $color-white;
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: inherit;
+      max-height: 178px;
+    }
+
+    &-category {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &-roadmap {
+      margin-top: 0;
+    }
   }
 }

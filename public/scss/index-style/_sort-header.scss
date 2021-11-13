@@ -75,3 +75,32 @@
     }
   }
 }
+
+@include tabletScreen {
+  .sort-header {
+    @include maxWidth;
+    margin: 0 auto;
+    @include borderRadius;
+    height: 72px;
+    padding: 0 16px 0 20px;
+
+    &-logo-container {
+      display: flex;
+      gap: 1rem;
+      color: $color-white;
+    }
+  }
+
+  .sug-container {
+    top: 350px;
+    width: 250px;
+
+    &.open {
+      height: 215px;
+    }
+
+    .single-sort-container {
+      padding: 15px 30px;
+    }
+  }
+}

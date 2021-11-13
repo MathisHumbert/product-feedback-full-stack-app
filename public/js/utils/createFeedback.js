@@ -4,7 +4,7 @@ const createFeedback = (feedbacks) => {
     <div class="no-feedback">
   <div class="no-feedback-container">
     <img src="../assets/suggestions/illustration-empty.svg" alt="no-feedback" />
-    <h3>There is no feedback yet</h3>
+    <h1>There is no feedback yet</h1>
     <p class="body2">
       Got a suggestion? Found a bug that needs to be squashed? We love hearing
       about new ideas to improve our app.

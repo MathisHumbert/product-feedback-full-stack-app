@@ -19,8 +19,16 @@
   transition: $value 0.4s ease-in-out;
 }
 
+@mixin maxWidth {
+  width: calc(100vw - 80px);
+}
+
+@mixin borderRadius {
+  border-radius: 10px;
+}
+
 @mixin tabletScreen {
-  @media screen and (min-widhth: 768px) {
+  @media screen and (min-width: 768px) {
     @content;
   }
 }

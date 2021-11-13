@@ -4,6 +4,10 @@
   font-family: 'Jost', sans-serif;
 }
 
+h1 {
+  font-size: 18px;
+}
+
 h2 {
   font-size: 15px;
 }
@@ -57,4 +61,28 @@ button {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+@include tabletScreen {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  .body2 {
+    font-size: 16px;
+  }
+
+  .button1 {
+    background: $color-purple;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
 }
