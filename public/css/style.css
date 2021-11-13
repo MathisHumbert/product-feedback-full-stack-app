@@ -506,21 +506,20 @@ nav {
   background: #fff;
   border-radius: 10px;
   padding: 2rem 20px;
-  display: block;
-  text-decoration: none;
 }
 
-.single-feedback .title {
+.single-feedback a {
+  display: block;
   font-size: 13px;
   color: #3a4374;
   text-decoration: none;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   -webkit-transition: color 0.4s ease-in-out;
   transition: color 0.4s ease-in-out;
 }
 
-.single-feedback:hover .title {
+.single-feedback a:hover {
   color: #4661e6;
 }
 
@@ -643,7 +642,7 @@ nav {
     padding: 2rem;
     position: relative;
   }
-  .single-feedback .title {
+  .single-feedback a {
     font-size: 18px;
     margin-left: 6rem;
   }

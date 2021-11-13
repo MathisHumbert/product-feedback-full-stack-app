@@ -93,6 +93,30 @@ const getComments = async (req, res) => {
   res.status(200).json(feedback.comments);
 };
 
+const toggleUpvoted = async (req, res) => {
+  const { id } = req.body;
+  const feedback = await Feedback.findOne({ _id: id });
+
+  let upvoted = feedback.upvoted;
+  let upvotes = feedback.upvotes;
+
+  if (upvoted === false) {
+    upvotes++;
+  } else {
+    upvotes--;
+  }
+
+  upvoted = !upvoted;
+
+  const result = await Feedback.findByIdAndUpdate(
+    { _id: id },
+    { upvoted, upvotes },
+    { new: true, runValidators: true }
+  );
+
+  res.status(200).json(result);
+};
+
 module.exports = {
   getAllFeedback,
   getSingleFeedback,
@@ -100,4 +124,5 @@ module.exports = {
   editFeedback,
   deleteAllFeedback,
   getComments,
+  toggleUpvoted,
 };

@@ -25,6 +25,10 @@ const displayAllFeedbacks = async () => {
     });
 
     allFeedback.innerHTML = createFeedback(data.feedbacks);
+    const upvotes = allFeedback.querySelectorAll('.upvotes-btn');
+    upvotes.forEach((upvote) =>
+      upvote.addEventListener('click', upvoteBtnFeedback)
+    );
 
     roadmapNumberHandler(data.feedbacks);
     sortHandler(sort);
@@ -34,4 +38,24 @@ const displayAllFeedbacks = async () => {
   }
 };
 
+async function upvoteBtnFeedback(e) {
+  const id = e.currentTarget.dataset.id;
+  try {
+    const { data } = await axios.post('/api/v1/feedbacks/upvoted', {
+      id,
+    });
+    const { upvotes, upvoted } = data;
+    console.log(upvotes, upvoted);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default displayAllFeedbacks;
+
+// let upvoteNumber = Number(e.currentTarget.children[1].textContent);
+// if (e.currentTarget.classList.contains('active')) {
+//   e.currentTarget.classList.remove('active');
+// } else {
+//   e.currentTarget.classList.add('active');
+// }

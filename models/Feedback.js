@@ -14,6 +14,10 @@ const FeedbackSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  upvoted: {
+    type: Boolean,
+    default: false,
+  },
   status: {
     type: String,
     enum: ['planned', 'in-progress', 'live', 'suggestion'],

@@ -8,6 +8,7 @@ const {
   editFeedback,
   deleteAllFeedback,
   getComments,
+  toggleUpvoted,
 } = require('../controllers/feedbackControllers');
 
 router.route('/').get(getAllFeedback).post(createFeedback);
@@ -16,6 +17,8 @@ router
   .get(getSingleFeedback)
   .patch(editFeedback)
   .delete(deleteAllFeedback);
+
 router.route('/comments/:id').get(getComments);
+router.post('/upvoted', toggleUpvoted);
 
 module.exports = router;
