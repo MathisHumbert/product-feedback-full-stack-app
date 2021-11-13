@@ -559,12 +559,17 @@ nav {
   font-size: 13px;
   color: #3a4374;
   font-weight: bold;
-  -webkit-transition: background 0.4s ease-in-out;
-  transition: background 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .upvotes-btn:hover {
   background: #cfd7ff;
+}
+
+.upvotes-btn.active {
+  background: #4661e6;
+  color: #fff;
 }
 
 .votes-container {

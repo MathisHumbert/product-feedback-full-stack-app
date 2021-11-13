@@ -49,10 +49,15 @@
   font-size: 13px;
   color: $color-special-black;
   font-weight: bold;
-  @include basicTransition($value: background);
+  @include basicTransition($value: all);
 
   &:hover {
     background: #cfd7ff;
+  }
+
+  &.active {
+    background: $color-blue;
+    color: $color-white;
   }
 }
 

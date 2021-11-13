@@ -1,5 +1,6 @@
 import createFeedback from './createFeedback.js';
 import roadmapNumberHandler from './getRoadmapNum.js';
+import upvoteHandler from './upvoteHandler.js';
 
 const filterBtn = document.querySelectorAll('.filter-btn');
 const sidebar = document.querySelector('.nav-sidebar');
@@ -31,6 +32,7 @@ async function displayFilteredFeedbacks(e) {
     console.log(data.feedbacks);
     roadmapNumberHandler(data.feedbacks);
     localStorage.setItem('filterFeedback', e.target.textContent);
+    upvoteHandler(allFeedback);
   } catch (error) {
     console.log(error);
   }
