@@ -31,3 +31,43 @@ function selectHandler(e) {
   selectCategory.classList.toggle('open');
   ownSlect.classList.remove('active');
 }
+
+const form = document.querySelector('.create-form');
+const titleInput = document.querySelector('.title');
+const detailInput = document.querySelector('.detail');
+
+form.addEventListener('submit', formHandler);
+
+async function formHandler(e) {
+  e.preventDefault();
+  const category = selectedValue.textContent;
+  const title = titleInput.value;
+  const description = detailInput.value;
+
+  if (title === '') {
+    return errorHandler(titleInput);
+  }
+
+  if (description === '') {
+    return errorHandler(detailInput);
+  }
+
+  try {
+    const { data } = await axios.post('/api/v1/feedbacks', {
+      category,
+      title,
+      description,
+    });
+    console.log(data);
+    window.location.href = '/index.html';
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function errorHandler(element) {
+  element.style.borderColor = 'red';
+  const errorMessage = `
+  <p class="error-message">Can't be empty</p>
+  `;
+}

@@ -872,6 +872,7 @@ nav {
   color: #3a4374;
   font-size: 13px;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .create-form .title:focus,

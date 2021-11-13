@@ -50,6 +50,7 @@ const getSingleFeedback = async (req, res) => {
 
 const createFeedback = async (req, res) => {
   const { title, category, description } = req.body;
+  console.log(title, category, description);
 
   if (!title || !category || !description) {
     throw new CustomError.BadRequestError(
@@ -59,7 +60,7 @@ const createFeedback = async (req, res) => {
 
   const feedback = await Feedback.create(req.body);
 
-  res.status(201).json(feedback);
+  res.status(201).json({ success: 'created', feedback });
 };
 
 const editFeedback = async (req, res) => {

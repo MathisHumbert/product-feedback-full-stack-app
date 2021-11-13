@@ -21,7 +21,7 @@ const FeedbackSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ['planned', 'in-progress', 'live', 'suggestion'],
-    required: [true, 'Please provide status name'],
+    default: 'suggestion',
   },
   description: {
     type: String,
