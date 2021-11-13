@@ -1,5 +1,4 @@
 import createFeedback from './createFeedback.js';
-import roadmapNumberHandler from './getRoadmapNum.js';
 
 const sortDOM = document.querySelector('.sug-container');
 const sortItem = document.querySelectorAll('.single-sort');
@@ -31,7 +30,6 @@ async function displaySortedFeedbacks(e) {
     });
 
     allFeedback.innerHTML = createFeedback(data.feedbacks);
-    roadmapNumberHandler(data.feedbacks);
     localStorage.setItem('sortFeedback', e.target.textContent);
   } catch (error) {
     console.log(error);

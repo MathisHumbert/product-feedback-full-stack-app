@@ -37,6 +37,7 @@
   height: 0;
   width: 200px;
   overflow: hidden;
+  z-index: 2;
   @include basicTransition($value: height);
 
   &.open {

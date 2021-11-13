@@ -9,18 +9,20 @@
   background: $color-white;
   border-radius: 10px;
   padding: 2rem 20px;
+  display: block;
+  text-decoration: none;
 
-  a {
+  .title {
     font-size: 13px;
     color: $color-special-black;
     text-decoration: none;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     @include basicTransition($value: color);
+  }
 
-    &:hover {
-      color: $color-blue;
-    }
+  &:hover .title {
+    color: $color-blue;
   }
 
   .body1 {
@@ -63,6 +65,10 @@
   .body1 {
     color: $color-special-black;
     font-weight: 700;
+  }
+
+  .zero {
+    opacity: 0.5;
   }
 }
 
@@ -110,9 +116,9 @@
     padding: 2rem;
     position: relative;
 
-    a {
+    .title {
       font-size: 18px;
-      margin-bottom: 1rem;
+
       margin-left: 6rem;
     }
 

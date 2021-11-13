@@ -28,6 +28,7 @@ async function displayFilteredFeedbacks(e) {
       },
     });
     allFeedback.innerHTML = createFeedback(data.feedbacks);
+    console.log(data.feedbacks);
     roadmapNumberHandler(data.feedbacks);
     localStorage.setItem('filterFeedback', e.target.textContent);
   } catch (error) {
