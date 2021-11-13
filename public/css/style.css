@@ -1,15 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  background: #f7f8fd;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
 * {
   font-family: 'Jost', sans-serif;
 }
@@ -94,6 +83,30 @@ button:focus {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f7f8fd;
+}
+
+@media screen and (min-width: 1440px) {
+  .main-container {
+    width: 100vw;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 20% 80%;
+    grid-template-columns: 20% 80%;
+    padding: 80px;
+  }
+}
+
 nav {
   width: 100%;
   height: 72px;
@@ -103,17 +116,23 @@ nav {
   width: 100%;
   height: 100%;
   padding: 0 24px;
-  background: linear-gradient(50deg, #28a7ed 0%, #b43cd5 40%, #a337f6 60%, #e84d70 100%);
+  background: linear-gradient(
+    50deg,
+    #28a7ed 0%,
+    #b43cd5 40%,
+    #a337f6 60%,
+    #e84d70 100%
+  );
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: relative;
   color: #fff;
 }
@@ -123,7 +142,7 @@ nav {
   right: 24px;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
@@ -155,7 +174,7 @@ nav {
   background: #f7f8fd;
   padding: 2rem 1rem;
   -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  transform: translateX(100%);
   -webkit-transition: -webkit-transform 0.4s ease-in-out;
   transition: -webkit-transform 0.4s ease-in-out;
   transition: transform 0.4s ease-in-out;
@@ -164,10 +183,11 @@ nav {
 
 .nav-sidebar.open .nav-sidebar-container {
   -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
 
-.nav-sidebar-category, .nav-sidebar-roadmap {
+.nav-sidebar-category,
+.nav-sidebar-roadmap {
   background: #fff;
   border-radius: 10px;
   padding: 2rem 1rem;
@@ -179,7 +199,7 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -192,8 +212,8 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
@@ -219,8 +239,8 @@ nav {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -229,8 +249,8 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .nav-sidebar-roadmap .roadmap-items .roadmap-item .container {
@@ -239,8 +259,8 @@ nav {
   display: flex;
   gap: 10px;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .nav-sidebar-roadmap .roadmap-items .roadmap-item .body1 {
@@ -296,7 +316,7 @@ nav {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 2fr;
-        grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr;
   }
   .nav-logo-container {
     height: 100%;
@@ -307,8 +327,8 @@ nav {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     padding: 20px;
     border-radius: 10px;
   }
@@ -332,14 +352,15 @@ nav {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     background: transparent;
     padding: 0;
     -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
   }
-  .nav-sidebar-category, .nav-sidebar-roadmap {
+  .nav-sidebar-category,
+  .nav-sidebar-roadmap {
     background: #fff;
     border-radius: 10px;
     padding: 1rem;
@@ -351,14 +372,55 @@ nav {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     gap: 1rem;
   }
   .nav-sidebar-roadmap {
     margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  nav {
+    width: 100%;
+    max-height: inherit;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-logo-container {
+    height: 137px;
+    width: 100%;
+  }
+  .nav-sidebar {
+    max-height: inherit;
+  }
+  .nav-sidebar-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+  }
+  .nav-sidebar-category {
+    min-height: 166px;
+  }
+  .nav-sidebar-roadmap {
+    min-height: 178px;
   }
 }
 
@@ -368,11 +430,11 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 56px;
   padding: 0 24px;
 }
@@ -386,8 +448,8 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 10px;
   color: #f2f4fe;
   cursor: pointer;
@@ -409,7 +471,7 @@ nav {
   top: 140px;
   background: #fff;
   -webkit-box-shadow: 0 2px 6px #979797;
-          box-shadow: 0 2px 6px #979797;
+  box-shadow: 0 2px 6px #979797;
   border-radius: 10px;
   height: 0;
   width: 200px;
@@ -430,11 +492,11 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .sug-container .single-sort-container .body1 {
@@ -490,6 +552,13 @@ nav {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .sort-header {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+}
+
 .all-feedbacks {
   padding: 20px 24px 3rem 24px;
   display: -webkit-box;
@@ -497,8 +566,8 @@ nav {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -539,11 +608,11 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .upvotes-btn {
@@ -552,8 +621,8 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 10px;
   padding: 5px 10px;
   font-size: 13px;
@@ -577,8 +646,8 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 10px;
 }
 
@@ -598,11 +667,11 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 2rem;
   border-radius: 10px;
 }
@@ -612,12 +681,12 @@ nav {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -665,8 +734,8 @@ nav {
     top: 38px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     gap: 5px;
     padding: 10px 15px;
     max-width: 40px;
@@ -676,7 +745,7 @@ nav {
     right: 2rem;
     top: 50%;
     -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     gap: 10px;
   }
   .votes-container .body1 {
@@ -693,6 +762,15 @@ nav {
   }
   .no-feedback-container .body2 {
     max-width: 410px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .all-feedbacks {
+    padding: 0;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    margin-top: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */

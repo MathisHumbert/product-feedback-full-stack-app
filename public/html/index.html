@@ -16,111 +16,113 @@
     <title>Frontend Mentor | Product feedback app</title>
   </head>
   <body>
-    <!-- nav -->
-    <nav>
-      <!-- logo -->
-      <div class="nav-logo-container">
-        <h2>Frontend Mentor</h2>
-        <p class="body2">Feedback Board</p>
-        <img
-          src="../assets/shared/mobile/icon-hamburger.svg"
-          class="sidebar-button"
-          alt="sibar-cursor"
-        />
-      </div>
-      <!-- sidebar -->
-      <div class="nav-sidebar">
-        <div class="nav-sidebar-container">
-          <!-- category -->
-          <div class="nav-sidebar-category">
-            <button class="category-btn filter-btn">all</button>
-            <button class="category-btn filter-btn">UI</button>
-            <button class="category-btn filter-btn">UX</button>
-            <button class="category-btn filter-btn">enhancement</button>
-            <button class="category-btn filter-btn">bug</button>
-            <button class="category-btn filter-btn">feature</button>
-          </div>
-          <div class="nav-sidebar-roadmap">
-            <div class="header">
-              <h3>Roadmap</h3>
-              <a href="roadmap.html">View</a>
-            </div>
-            <!-- roadmap -->
-            <div class="roadmap-items">
-              <div class="roadmap-item">
-                <div class="container">
-                  <div class="circle orange"></div>
-                  <p class="body1">Planned</p>
-                </div>
-                <p class="body1 roadmap-number planned-number"></p>
-              </div>
-              <div class="roadmap-item">
-                <div class="container">
-                  <div class="circle purple"></div>
-                  <p class="body1">In-Progress</p>
-                </div>
-                <p class="body1 roadmap-number progress-number"></p>
-              </div>
-              <div class="roadmap-item">
-                <div class="container">
-                  <div class="circle blue"></div>
-                  <p class="body1">Live</p>
-                </div>
-                <p class="body1 roadmap-number live-number"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- main -->
-    <main>
-      <!-- sort header -->
-      <header class="sort-header">
+    <div class="main-container">
+      <!-- nav -->
+      <nav>
         <!-- logo -->
-        <div class="sort-header-logo-container">
-          <img src="../assets/suggestions/icon-suggestions.svg" alt="" />
-          <h3 class="suggestions-number"></h3>
+        <div class="nav-logo-container">
+          <h2>Frontend Mentor</h2>
+          <p class="body2">Feedback Board</p>
+          <img
+            src="../assets/shared/mobile/icon-hamburger.svg"
+            class="sidebar-button"
+            alt="sibar-cursor"
+          />
         </div>
-        <!-- show all sorts -->
-        <div class="sort-header-sug-container">
-          <div class="sort-click">
-            <h4 class="sort-text"></h4>
-            <img
-              src="../assets/shared/icon-arrow-down-white.svg"
-              alt="arrow"
-              class="sort-arrow"
-            />
-          </div>
-          <div class="sug-container">
-            <div class="single-sort-container">
-              <p class="body1 single-sort">Most Upvotes</p>
-              <img src="../assets/shared/icon-check.svg" alt="check" />
+        <!-- sidebar -->
+        <div class="nav-sidebar">
+          <div class="nav-sidebar-container">
+            <!-- category -->
+            <div class="nav-sidebar-category">
+              <button class="category-btn filter-btn">all</button>
+              <button class="category-btn filter-btn">UI</button>
+              <button class="category-btn filter-btn">UX</button>
+              <button class="category-btn filter-btn">enhancement</button>
+              <button class="category-btn filter-btn">bug</button>
+              <button class="category-btn filter-btn">feature</button>
             </div>
-            <div class="single-sort-container">
-              <p class="body1 single-sort">Least Upvotes</p>
-              <img src="../assets/shared/icon-check.svg" alt="check" />
-            </div>
-            <div class="single-sort-container">
-              <p class="body1 single-sort">Most Comments</p>
-              <img src="../assets/shared/icon-check.svg" alt="check" />
-            </div>
-            <div class="single-sort-container">
-              <p class="body1 single-sort">Least Comments</p>
-              <img src="../assets/shared/icon-check.svg" alt="check" />
+            <div class="nav-sidebar-roadmap">
+              <div class="header">
+                <h3>Roadmap</h3>
+                <a href="roadmap.html">View</a>
+              </div>
+              <!-- roadmap -->
+              <div class="roadmap-items">
+                <div class="roadmap-item">
+                  <div class="container">
+                    <div class="circle orange"></div>
+                    <p class="body1">Planned</p>
+                  </div>
+                  <p class="body1 roadmap-number planned-number"></p>
+                </div>
+                <div class="roadmap-item">
+                  <div class="container">
+                    <div class="circle purple"></div>
+                    <p class="body1">In-Progress</p>
+                  </div>
+                  <p class="body1 roadmap-number progress-number"></p>
+                </div>
+                <div class="roadmap-item">
+                  <div class="container">
+                    <div class="circle blue"></div>
+                    <p class="body1">Live</p>
+                  </div>
+                  <p class="body1 roadmap-number live-number"></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- feedback link -->
-        <a href="feedback-new.html"
-          ><button class="button1">+ Add Feedback</button></a
-        >
-      </header>
+      </nav>
 
-      <!-- all feedback -->
-      <section class="all-feedbacks"></section>
-    </main>
+      <!-- main -->
+      <main>
+        <!-- sort header -->
+        <header class="sort-header">
+          <!-- logo -->
+          <div class="sort-header-logo-container">
+            <img src="../assets/suggestions/icon-suggestions.svg" alt="" />
+            <h3 class="suggestions-number"></h3>
+          </div>
+          <!-- show all sorts -->
+          <div class="sort-header-sug-container">
+            <div class="sort-click">
+              <h4 class="sort-text"></h4>
+              <img
+                src="../assets/shared/icon-arrow-down-white.svg"
+                alt="arrow"
+                class="sort-arrow"
+              />
+            </div>
+            <div class="sug-container">
+              <div class="single-sort-container">
+                <p class="body1 single-sort">Most Upvotes</p>
+                <img src="../assets/shared/icon-check.svg" alt="check" />
+              </div>
+              <div class="single-sort-container">
+                <p class="body1 single-sort">Least Upvotes</p>
+                <img src="../assets/shared/icon-check.svg" alt="check" />
+              </div>
+              <div class="single-sort-container">
+                <p class="body1 single-sort">Most Comments</p>
+                <img src="../assets/shared/icon-check.svg" alt="check" />
+              </div>
+              <div class="single-sort-container">
+                <p class="body1 single-sort">Least Comments</p>
+                <img src="../assets/shared/icon-check.svg" alt="check" />
+              </div>
+            </div>
+          </div>
+          <!-- feedback link -->
+          <a href="feedback-new.html"
+            ><button class="button1">+ Add Feedback</button></a
+          >
+        </header>
+
+        <!-- all feedback -->
+        <section class="all-feedbacks"></section>
+      </main>
+    </div>
   </body>
 
   <script

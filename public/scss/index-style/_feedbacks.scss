@@ -110,7 +110,7 @@
 @include tabletScreen {
   .all-feedbacks {
     padding: 20px 0 3rem 0;
-    @include maxWidth;
+    width: calc(100vw - 80px);
     margin: 0 auto;
   }
 
@@ -172,5 +172,14 @@
         max-width: 410px;
       }
     }
+  }
+}
+
+@include desktopScreen {
+  .all-feedbacks {
+    padding: 0;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    margin-top: 20px;
   }
 }

@@ -79,7 +79,7 @@
 
 @include tabletScreen {
   .sort-header {
-    @include maxWidth;
+    width: calc(100vw - 80px);
     margin: 0 auto;
     @include borderRadius;
     height: 72px;
@@ -103,5 +103,12 @@
     .single-sort-container {
       padding: 15px 30px;
     }
+  }
+}
+
+@include desktopScreen {
+  .sort-header {
+    width: calc(100% - 40px);
+    margin: 0 auto;
   }
 }
