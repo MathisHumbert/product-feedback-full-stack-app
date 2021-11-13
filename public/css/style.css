@@ -57,7 +57,13 @@ button:focus {
   background: #ad1fea;
   padding: 10px 20px;
   font-size: 13px;
-  color: #fff;
+  color: #f2f4fe;
+  -webkit-transition: background 0.4s ease-in-out;
+  transition: background 0.4s ease-in-out;
+}
+
+.button1:hover {
+  background: #c75af6;
 }
 
 .uppercase {
@@ -438,5 +444,48 @@ nav {
 .votes-container .body1 {
   color: #3a4374;
   font-weight: 700;
+}
+
+.no-feedback {
+  background: #fff;
+  height: 460px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
+}
+
+.no-feedback-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.no-feedback-container h3 {
+  color: #3a4374;
+}
+
+.no-feedback-container img {
+  width: 102px;
+}
+
+.no-feedback-container .body2 {
+  text-align: center;
+  color: #647196;
+  max-width: 278px;
 }
 /*# sourceMappingURL=style.css.map */

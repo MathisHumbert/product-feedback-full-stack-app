@@ -18,3 +18,9 @@
 @mixin basicTransition($value) {
   transition: $value 0.4s ease-in-out;
 }
+
+@mixin tabletScreen {
+  @media screen and (min-widhth: 768px) {
+    @content;
+  }
+}

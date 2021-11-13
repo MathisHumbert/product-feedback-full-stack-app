@@ -65,3 +65,33 @@
     font-weight: 700;
   }
 }
+
+.no-feedback {
+  background: $color-white;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  &-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+      color: $color-special-black;
+    }
+
+    img {
+      width: 102px;
+    }
+
+    .body2 {
+      text-align: center;
+      color: $color-grey;
+      max-width: 278px;
+    }
+  }
+}
