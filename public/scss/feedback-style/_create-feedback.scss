@@ -195,7 +195,6 @@
   }
 
   .go-back {
-    left: 40px;
     font-size: 14px;
   }
 
@@ -208,24 +207,13 @@
     }
 
     .button-container {
-      display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: right;
       gap: 10px;
 
-      .button1 {
-        border: none;
-        @include borderRadius;
-        cursor: pointer;
-        font-weight: 700;
-      }
-
       .button3 {
-        border: none;
-        @include borderRadius;
-        text-align: center;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 13px;
+        @include flex($justify: center, $align: center);
       }
     }
   }

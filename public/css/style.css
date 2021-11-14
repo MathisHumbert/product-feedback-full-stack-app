@@ -1004,7 +1004,6 @@ nav {
     max-width: 540px;
   }
   .go-back {
-    left: 40px;
     font-size: 14px;
   }
   .create-feedback {
@@ -1016,28 +1015,28 @@ nav {
             transform: translatey(-50%);
   }
   .create-feedback .button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-box-pack: right;
+        -ms-flex-pack: right;
+            justify-content: right;
+    gap: 10px;
+  }
+  .create-feedback .button-container .button3 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 10px;
-  }
-  .create-feedback .button-container .button1 {
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-  }
-  .create-feedback .button-container .button3 {
-    border: none;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 13px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .create-form h4 {
     font-size: 14px;
