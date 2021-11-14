@@ -779,10 +779,19 @@ nav {
   }
 }
 
+.hero {
+  width: calc(100vw - 48px);
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  padding: 6rem 0 2rem 0;
+}
+
 .go-back {
   position: absolute;
   top: 2rem;
-  left: 24px;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -792,12 +801,12 @@ nav {
   gap: 10px;
   text-decoration: none;
   color: #647196;
+  font-size: 13px;
 }
 
 .create-feedback {
-  width: calc(100vw - 48px);
-  margin: 6rem auto 2rem auto;
-  padding: 2rem 20px 20px 20px;
+  width: 100%;
+  padding: 24px;
   background: #fff;
   border-radius: 10px;
   position: relative;
@@ -845,6 +854,7 @@ nav {
 
 .create-form h4 {
   color: #3a4374;
+  font-size: 13px;
 }
 
 .create-form p {
@@ -892,6 +902,10 @@ nav {
   border: 1px solid transparent;
 }
 
+.create-form .own-select p {
+  color: #3a4374;
+}
+
 .create-form .own-select.active {
   border-color: #4661e6;
 }
@@ -913,6 +927,7 @@ nav {
 .create-form .select-click p {
   margin: 0;
   text-transform: capitalize;
+  color: #3a4374;
 }
 
 .select-options {
@@ -976,5 +991,66 @@ nav {
 
 .select-options .single-select-container:last-child {
   border-bottom: none;
+}
+
+.error-message {
+  color: #d73737;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    max-width: 540px;
+  }
+  .go-back {
+    left: 40px;
+    font-size: 14px;
+  }
+  .create-feedback {
+    padding: 42px;
+  }
+  .create-feedback img:first-child {
+    width: 56px;
+    -webkit-transform: translatey(-50%);
+            transform: translatey(-50%);
+  }
+  .create-feedback .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+  }
+  .create-feedback .button-container .button1 {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .create-feedback .button-container .button3 {
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .create-form h4 {
+    font-size: 14px;
+  }
+  .create-form p {
+    font-size: 14px;
+  }
+  .create-form .title,
+  .create-form .detail {
+    font-size: 14px;
+  }
+  .error-message {
+    font-size: 14px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,18 +1,27 @@
+.hero {
+  width: calc(100vw - 48px);
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  padding: 6rem 0 2rem 0;
+}
+
 .go-back {
   position: absolute;
   top: 2rem;
-  left: 24px;
+  left: 0;
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
   color: $color-grey;
+  font-size: 13px;
 }
 
 .create-feedback {
-  width: calc(100vw - 48px);
-  margin: 6rem auto 2rem auto;
-  padding: 2rem 20px 20px 20px;
+  width: 100%;
+  padding: 24px;
   background: $color-white;
   @include borderRadius;
   position: relative;
@@ -55,6 +64,7 @@
 .create-form {
   h4 {
     color: $color-special-black;
+    font-size: 13px;
   }
   p {
     font-size: 13px;
@@ -99,6 +109,10 @@
     position: relative;
     cursor: pointer;
     border: 1px solid transparent;
+
+    p {
+      color: $color-special-black;
+    }
     &.active {
       border-color: $color-blue;
     }
@@ -112,6 +126,7 @@
     p {
       margin: 0;
       text-transform: capitalize;
+      color: $color-special-black;
     }
   }
 }
@@ -165,5 +180,70 @@
     &:last-child {
       border-bottom: none;
     }
+  }
+}
+
+.error-message {
+  color: $color-red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+@include tabletScreen {
+  .hero {
+    max-width: 540px;
+  }
+
+  .go-back {
+    left: 40px;
+    font-size: 14px;
+  }
+
+  .create-feedback {
+    padding: 42px;
+
+    img:first-child {
+      width: 56px;
+      transform: translatey(-50%);
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .button1 {
+        border: none;
+        @include borderRadius;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .button3 {
+        border: none;
+        @include borderRadius;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .create-form {
+    h4 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 14px;
+    }
+    .title,
+    .detail {
+      font-size: 14px;
+    }
+  }
+
+  .error-message {
+    font-size: 14px;
   }
 }

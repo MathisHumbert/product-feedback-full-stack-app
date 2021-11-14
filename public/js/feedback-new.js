@@ -67,7 +67,15 @@ async function formHandler(e) {
 
 function errorHandler(element) {
   element.style.borderColor = 'red';
-  const errorMessage = `
-  <p class="error-message">Can't be empty</p>
-  `;
+  const error = document.createElement('span');
+  error.innerHTML = `Can't be empty`;
+  error.className = 'error-message';
+  element.parentElement.appendChild(error);
+  form.removeEventListener('submit', formHandler);
+
+  setTimeout(() => {
+    element.style.borderColor = 'transparent';
+    error.remove();
+    form.addEventListener('submit', formHandler);
+  }, 3000);
 }
