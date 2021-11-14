@@ -1,43 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="stylesheet" href="../css/style.css" />
 
-  <title>Frontend Mentor | Product feedback app</title>
-</head>
+    <title>Frontend Mentor | Product feedback app</title>
+  </head>
 
-<body>
-  Go Back
+  <body>
+    <div class="hero">
+      <a href="index.html" class="go-back">
+        <img src="../assets/shared/icon-arrow-left.svg" alt="" />
+        <h4>Go Back</h4>
+      </a>
 
-  Editing <!-- Add title -->
+      <section class="create-feedback">
+        <img src="../assets/shared/icon-new-feedback.svg" alt="logo" />
+        <h1>Create New Feedback</h1>
 
-  Feedback Title
-  Add a short, descriptive headline
-  
-  Category
-  Choose a category for your feedback
-  Feature
-  UI
-  UX
-  Enhancement
-  Bug
+        <form action="#" class="create-form">
+          <div class="title-input input-container">
+            <h4>Feedback Title</h4>
+            <p>Add a short, descriptive headline</p>
+            <input type="text" name="title" id="title" class="title input" />
+          </div>
+          <div class="category-input input-container">
+            <h4>Category</h4>
+            <p>Choose a category for your feedback</p>
+            <div class="input own-select">
+              <div class="select-click">
+                <p class="selected-value">feature</p>
+                <img
+                  src="../assets/shared/icon-arrow-down.svg"
+                  alt="arrow"
+                  class="select-arrow"
+                />
+              </div>
+              <div class="select-options">
+                <div class="single-select-container open">
+                  <p class="body1 single-select">feature</p>
+                  <img src="../assets/shared/icon-check.svg" alt="check" />
+                </div>
+                <div class="single-select-container">
+                  <p class="body1 single-select">UI</p>
+                  <img src="../assets/shared/icon-check.svg" alt="check" />
+                </div>
+                <div class="single-select-container">
+                  <p class="body1 single-select">UX</p>
+                  <img src="../assets/shared/icon-check.svg" alt="check" />
+                </div>
+                <div class="single-select-container">
+                  <p class="body1 single-select">enhancement</p>
+                  <img src="../assets/shared/icon-check.svg" alt="check" />
+                </div>
+                <div class="single-select-container">
+                  <p class="body1 single-select">bug</p>
+                  <img src="../assets/shared/icon-check.svg" alt="check" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-input input-container">
+            <h4>Feedback Detail</h4>
+            <p>
+              Include any specific comments on what should be improved, added,
+              etc.
+            </p>
+            <textarea name="detail" id="detail" class="detail input"></textarea>
+          </div>
+          <div class="button-container">
+            <input type="submit" class="button1" value="Add Feedback" />
+            <a href="index.html" class="button3">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>
 
-  Update Status
-  Change feature state
-  Suggestion
-  Planned
-  In-Progress
-  Live
-  
-  Feedback Detail
-  Include any specific comments on what should be improved, added, etc.
-  
-  Delete
-  Cancel
-  Save Changes
-</body>
-<html
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+    integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="../js/feedback-new.js" type="module"></script>
+</html>
