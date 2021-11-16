@@ -54,6 +54,19 @@
   }
 
   .main-comment {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(140, 146, 179, 0.25);
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .reply-comment {
+      padding-top: 20px;
+    }
+
     .header {
       display: flex;
       align-items: center;
@@ -62,6 +75,11 @@
         font-size: 13px;
         font-weight: 600;
         color: $color-blue;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
     .info {
@@ -91,17 +109,18 @@
     .main-text {
       font-size: 13px;
       color: $color-grey;
-      margin: 10px 0;
+      margin-top: 10px;
     }
   }
 
   .reply-form {
     display: flex;
     width: 100%;
-    gap: 10px;
     height: 0;
+    padding-top: 10px;
+    gap: 10px;
     overflow: hidden;
-
+    @include basicTransition($value: height);
     .reply-input {
       height: 80px;
       width: 100%;
@@ -117,11 +136,22 @@
       padding: 2.5px 7px;
     }
   }
+
+  .open .reply-form {
+    height: 90px;
+  }
+
+  .rep-person {
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-purple;
+  }
 }
 
 .reply-comment {
   margin-left: 1rem;
 }
+
 .comment-form {
   background: $color-white;
   border-radius: 10px;
