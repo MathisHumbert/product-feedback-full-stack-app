@@ -28,7 +28,8 @@ h4 {
   font-size: 13px;
 }
 
-button {
+button,
+input[type='submit'] {
   border-radius: 10px;
   border: 0;
   cursor: pointer;
@@ -49,7 +50,8 @@ button {
 }
 
 .button1,
-.button3 {
+.button3,
+.button2 {
   padding: 10px 20px;
   font-size: 13px;
   color: $color-light-grey;
@@ -60,6 +62,13 @@ button {
   background: $color-purple;
   &:hover {
     background: $color-light-purple;
+  }
+}
+
+.button2 {
+  background: $color-blue;
+  &:hover {
+    background: #7c91f9;
   }
 }
 
