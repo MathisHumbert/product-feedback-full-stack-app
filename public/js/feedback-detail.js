@@ -8,6 +8,7 @@ const id = new URLSearchParams(params).get('id');
 const getFeedback = async () => {
   try {
     const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
+
     feedbackContainer.innerHTML = createFeedback([data]);
     displayAllComments(data.comments);
   } catch (error) {
@@ -19,8 +20,9 @@ getFeedback();
 
 function displayAllComments(comments) {
   comments.forEach((comment) => {
-    console.log(comment);
-    console.log(comment.user);
+    const { content, user, replies } = comment;
+    const { image, name, username } = user;
+    console.log(user);
 
     const commentEl = document.createElement('article');
     commentEl.className = 'main-comment';
@@ -28,16 +30,16 @@ function displayAllComments(comments) {
     <div class="main-comment-container">
         <div class="header">
           <div class="info">
-            <img src="../assets/user-images/image-anne.jpg" alt="">
+            <img src="${image}" alt="portrait">
             <div class="text">
-              <h4>Elijah Moss</h4>
-              <p>@hexagon.bestagon</p>
+              <h4>${name}</h4>
+              <p>@${username}</p>
             </div>
           </div>
           <span class="reply-btn">Reply</span>
         </div>
         <div class="main-text">
-          Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
+        ${content}
         </div>
         <form action="#" class="reply-form">
           <textarea class="reply-input" required placeholder="Type your comment here"></textarea>
@@ -45,5 +47,13 @@ function displayAllComments(comments) {
         </form>
         </div>
     `;
+
+    if (replies) {
+      createReply(replies);
+    }
   });
 }
+
+const createComment = (comment) => {};
+
+const createReply = (reply) => {};
