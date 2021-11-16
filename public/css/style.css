@@ -1107,12 +1107,33 @@ body {
   color: #3a4374;
   font-weight: bold;
   opacity: 0.4;
-  padding: 15px 24px;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
-.roadmap-header p.active {
+.roadmap-header p:hover {
   opacity: 1;
-  border-bottom: 4px solid #ad1fea;
+}
+
+.roadmap-header .active {
+  opacity: 1;
+}
+
+.roadmap-header .planned-header.active {
+  border-bottom-color: #f49f85;
+}
+
+.roadmap-header .progress-header.active {
+  border-bottom-color: #ad1fea;
+}
+
+.roadmap-header .live-header.active {
+  border-bottom-color: #62bcfa;
 }
 
 .roadmap-section {
@@ -1126,12 +1147,13 @@ body {
   top: 0;
   right: 0;
   width: 100%;
-  border: 1px solid red;
   display: none;
+  padding-bottom: 2rem;
 }
 
 .roadmap-section .single-roadmap .text {
-  padding: 1rem 0;
+  padding-top: 20px;
+  padding-bottom: 4px;
 }
 
 .roadmap-section .single-roadmap .text h3 {
@@ -1148,13 +1170,13 @@ body {
   padding: 1rem;
   border-radius: 10px;
   position: relative;
+  margin-top: 1rem;
 }
 
 .roadmap-section .single-roadmap-item .top-color {
   position: absolute;
   height: 6px;
   width: 100%;
-  background: #ad1fea;
   top: 0;
   left: 0;
   border-top-right-radius: 10px;
@@ -1181,18 +1203,6 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 100%;
-}
-
-.roadmap-section .single-roadmap-item .header-container .circle.orange {
-  background: #f49f85;
-}
-
-.roadmap-section .single-roadmap-item .header-container .circle.purple {
-  background: #ad1fea;
-}
-
-.roadmap-section .single-roadmap-item .header-container .circle.blue {
-  background: #62bcfa;
 }
 
 .roadmap-section .single-roadmap-item a {
@@ -1239,5 +1249,20 @@ body {
 
 .single-roadmap.active .single-roadmap-item {
   display: block;
+}
+
+.single-roadmap.purple .top-color,
+.single-roadmap.purple .circle {
+  background: #ad1fea;
+}
+
+.single-roadmap.orange .top-color,
+.single-roadmap.orange .circle {
+  background: #f49f85;
+}
+
+.single-roadmap.blue .top-color,
+.single-roadmap.blue .circle {
+  background: #62bcfa;
 }
 /*# sourceMappingURL=style.css.map */

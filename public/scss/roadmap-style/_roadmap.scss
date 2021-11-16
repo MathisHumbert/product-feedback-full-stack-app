@@ -33,12 +33,30 @@
     color: $color-special-black;
     font-weight: bold;
     opacity: 0.4;
-    padding: 15px 24px;
+    padding: 15px 0;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    @include basicTransition(all);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
-  p.active {
+  .active {
     opacity: 1;
-    border-bottom: 4px solid $color-purple;
+  }
+
+  .planned-header.active {
+    border-bottom-color: $color-orange;
+  }
+  .progress-header.active {
+    border-bottom-color: $color-purple;
+  }
+  .live-header.active {
+    border-bottom-color: $color-light-blue;
   }
 }
 
@@ -52,11 +70,13 @@
     top: 0;
     right: 0;
     width: 100%;
-    border: 1px solid red;
+
     display: none;
+    padding-bottom: 2rem;
 
     .text {
-      padding: 1rem 0;
+      padding-top: 20px;
+      padding-bottom: 4px;
 
       h3 {
         color: $color-special-black;
@@ -73,12 +93,12 @@
       padding: 1rem;
       @include borderRadius;
       position: relative;
+      margin-top: 1rem;
 
       .top-color {
         position: absolute;
         height: 6px;
         width: 100%;
-        background: $color-purple;
         top: 0;
         left: 0;
         border-top-right-radius: 10px;
@@ -100,16 +120,6 @@
           width: 8px;
           height: 8px;
           border-radius: 100%;
-
-          &.orange {
-            background: $color-orange;
-          }
-          &.purple {
-            background: $color-purple;
-          }
-          &.blue {
-            background: $color-light-blue;
-          }
         }
       }
 
@@ -151,4 +161,19 @@
 
 .single-roadmap.active .single-roadmap-item {
   display: block;
+}
+
+.single-roadmap.purple .top-color,
+.single-roadmap.purple .circle {
+  background: $color-purple;
+}
+
+.single-roadmap.orange .top-color,
+.single-roadmap.orange .circle {
+  background: $color-orange;
+}
+
+.single-roadmap.blue .top-color,
+.single-roadmap.blue .circle {
+  background: $color-light-blue;
 }
