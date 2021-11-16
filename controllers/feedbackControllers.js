@@ -4,6 +4,11 @@ const CustomError = require('../errors');
 const getAllFeedback = async (req, res) => {
   let { sort, filter } = req.headers;
 
+  if (!sort && !filter) {
+    const feedbacks = await Feedback.find({}).sort('-upvotes');
+    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  }
+
   if (filter === 'all') {
     filter = undefined;
   }

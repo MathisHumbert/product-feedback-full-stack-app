@@ -53,6 +53,7 @@
     right: 0;
     width: 100%;
     border: 1px solid red;
+    display: none;
 
     .text {
       padding: 1rem 0;
@@ -142,4 +143,12 @@
       }
     }
   }
+}
+
+.single-roadmap.active {
+  display: block;
+}
+
+.single-roadmap.active .single-roadmap-item {
+  display: block;
 }

@@ -1127,6 +1127,7 @@ body {
   right: 0;
   width: 100%;
   border: 1px solid red;
+  display: none;
 }
 
 .roadmap-section .single-roadmap .text {
@@ -1230,5 +1231,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.single-roadmap.active {
+  display: block;
+}
+
+.single-roadmap.active .single-roadmap-item {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */
