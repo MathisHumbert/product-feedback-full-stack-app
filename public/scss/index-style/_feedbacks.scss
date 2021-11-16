@@ -135,26 +135,26 @@
       margin-bottom: 0;
       margin-left: 6rem;
     }
-  }
 
-  .upvotes-btn {
-    position: absolute;
-    top: 38px;
-    flex-direction: column;
-    gap: 5px;
-    padding: 10px 15px;
-    max-width: 40px;
-  }
+    .upvotes-btn {
+      position: absolute;
+      top: 38px;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px 15px;
+      max-width: 40px;
+    }
 
-  .votes-container {
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    gap: 10px;
+    .votes-container {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      gap: 10px;
 
-    .body1 {
-      margin-left: 0;
+      .body1 {
+        margin-left: 0;
+      }
     }
   }
 

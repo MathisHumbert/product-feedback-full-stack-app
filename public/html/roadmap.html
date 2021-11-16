@@ -1,29 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="stylesheet" href="../css/style.css" />
 
-  <title>Frontend Mentor | Product feedback app</title>
-</head>
+    <title>Frontend Mentor | Product feedback app</title>
+  </head>
 
-<body>
-  Go back
-  Roadmap
+  <body>
+    <nav class="roadmap-nav">
+      <div class="roadmap-nav-container">
+        <div class="text">
+          <a href="index.html" class="go-back-roadmap">
+            <img src="../assets/shared/icon-arrow-left-white.png" alt="" />
+            Go Back
+          </a>
+          <h1>Roadmap</h1>
+        </div>
+        <a href="feedback-new.html">
+          <button class="button1">+ Add Feedback</button>
+        </a>
+      </div>
+    </nav>
 
-  Add Feedback
+    <header class="roadmap-header">
+      <p>Planned (2)</p>
+      <p class="active">In-Progress (3)</p>
+      <p>Live (1)</p>
+    </header>
 
-  Planned <!-- Add number here -->
-  Ideas prioritized for research
+    <section class="roadmap-section">
+      <article class="single-roadmap">
+        <div class="text">
+          <h3>In-progress (3)</h3>
+          <p class="body1">Features currently being developed</p>
+        </div>
 
-  In-Progress <!-- Add number here -->
-  Currently being developed
+        <div class="single-roadmap-item">
+          <div class="top-color"></div>
+          <div class="header-container">
+            <div class="circle purple"></div>
+            <p class="body1">In-Progress</p>
+          </div>
+          <a href="feedback-detail.html?id=${_id}">${title}</a>
+          <p class="body1">${description}</p>
+          <button class="category-btn">${category}</button>
+          <div class="container">
+            <button
+              class="upvotes-btn ${ upvoted === true ? 'active' : '' }"
+              data-id="${_id}"
+            >
+              <img src="../assets/shared/icon-arrow-up.svg" alt="" />
+              <p class="upvotes-number">10</p>
+            </button>
+            <div class="votes-container">
+              <img src="../assets/shared/icon-comments.svg" alt="arrow" />
+              <p class="body1 ${comments.length === 0 ? 'zero' : ''}">1</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </body>
 
-  Live <!-- Add number here -->
-  Released features
-
-</body>
-<html
+  <script src="../js/roadmap.js"></script>
+</html>
