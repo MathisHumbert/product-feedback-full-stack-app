@@ -23,50 +23,11 @@
     </header>
 
     <div class="single-feedback-container">
-       <div class="single-feedback">
-          <a href="feedback-detail.html?id=${_id}">${title}</a>
-          <p class="body1">${description}</p>
-          <button class="category-btn">${category}</button>
-          <div class="container">
-            <button class="upvotes-btn ${
-              upvoted === true ? 'active' : ''
-            }" data-id="${_id}">
-              <img src="../assets/shared/icon-arrow-up.svg" alt="" />
-              <p class="upvotes-number">${upvotes}</p>
-            </button>
-            <div class="votes-container">
-              <img src="../assets/shared/icon-comments.svg" alt="arrow"/>
-              <p class="body1 ${comments.length === 0 ? 'zero' : ''}" >${
-          comments.length
-        }</p>
-            </div>
-          </div>
-        </div>
     </div>
 
     <section class="all-comments">
       <h3>4 Comments</h3>
-      <article class="main-comment">
-        <div class="main-comment-container">
-        <div class="header">
-          <div class="info">
-            <img src="../assets/user-images/image-anne.jpg" alt="">
-            <div class="text">
-              <h4>Elijah Moss</h4>
-              <p>@hexagon.bestagon</p>
-            </div>
-          </div>
-          <span class="reply-btn">Reply</span>
-        </div>
-        <div class="main-text">
-          Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-        </div>
-        <form action="#" class="reply-form">
-          <textarea class="reply-input" required placeholder="Type your comment here"></textarea>
-          <input type="submit" value="Post Reply" class="button1 reply-btn">
-        </form>
-        </div>
-      </article>
+      
     </section>
 
     <form action="#" class="comment-form">
