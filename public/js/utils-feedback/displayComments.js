@@ -1,8 +1,10 @@
-const numberOfComments = document.querySelector('.number-comments');
 const allComments = document.querySelector('.all-comments');
 
 function displayAllComments(comments) {
+  const numberOfComments = document.createElement('h3');
   numberOfComments.innerHTML = `${comments.length} Comments`;
+  allComments.appendChild(numberOfComments);
+
   comments.forEach((comment) => {
     const { replies } = comment;
     const commentEl = document.createElement('article');

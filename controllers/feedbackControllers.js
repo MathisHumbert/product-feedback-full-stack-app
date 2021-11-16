@@ -91,14 +91,6 @@ const deleteAllFeedback = async (req, res) => {
   res.status(200).json('item was removed');
 };
 
-const getComments = async (req, res) => {
-  const feedback = await Feedback.findOne({ _id: req.params.id }).select(
-    'comments'
-  );
-
-  res.status(200).json(feedback.comments);
-};
-
 const toggleUpvoted = async (req, res) => {
   const { id } = req.body;
   const feedback = await Feedback.findOne({ _id: id });
@@ -121,6 +113,21 @@ const toggleUpvoted = async (req, res) => {
   );
 
   res.status(200).json(result);
+};
+
+const getComments = async (req, res) => {
+  const feedback = await Feedback.findOne({ _id: req.params.id }).select(
+    'comments'
+  );
+  const comments = feedback.comments;
+  comments.push(req.body);
+  const result = await Feedback.findOneAndUpdate(
+    { _id: req.params.id },
+    { comments: comments },
+    { new: true, runValidators: true }
+  );
+
+  res.status(200).json({ result, success: 'created' });
 };
 
 module.exports = {

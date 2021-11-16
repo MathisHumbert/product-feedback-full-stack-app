@@ -18,7 +18,7 @@ router
   .patch(editFeedback)
   .delete(deleteAllFeedback);
 
-router.route('/comments/:id').get(getComments);
+router.route('/comments/:id').post(getComments);
 router.post('/upvoted', toggleUpvoted);
 
 module.exports = router;
