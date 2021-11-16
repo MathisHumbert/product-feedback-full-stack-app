@@ -17,6 +17,10 @@
   text-decoration: none;
   color: $color-grey;
   font-size: 13px;
+
+  &:hover h4 {
+    text-decoration: underline;
+  }
 }
 
 .create-feedback {

@@ -18,6 +18,11 @@
       align-items: center;
       gap: 10px;
       font-size: 13px;
+      font-weight: 700;
+
+      &:hover p {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -70,7 +75,6 @@
     top: 0;
     right: 0;
     width: 100%;
-
     display: none;
     padding-bottom: 2rem;
 
@@ -109,7 +113,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        margin-bottom: 1rem;
+        margin-bottom: 10px;
 
         p {
           font-size: 13px;
@@ -176,4 +180,118 @@
 .single-roadmap.blue .top-color,
 .single-roadmap.blue .circle {
   background: $color-light-blue;
+}
+
+@include tabletScreen {
+  .roadmap-nav {
+    width: calc(100vw - 80px);
+    height: 113px;
+    max-height: 113px;
+    margin: 0 auto;
+    padding: 2rem;
+    @include borderRadius;
+    margin-top: 2rem;
+
+    &-container {
+      width: 100%;
+
+      .go-back-roadmap {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .roadmap-header {
+    display: none;
+  }
+
+  .roadmap-section {
+    width: calc(100vw - 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+
+    .single-roadmap {
+      position: inherit;
+      display: block;
+      height: 100%;
+
+      &-item {
+        padding: 20px;
+
+        .description {
+          height: 40px;
+        }
+      }
+
+      .text {
+        h3 {
+          font-size: 14px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@include desktopScreen {
+  .roadmap-nav {
+    width: calc(100vw - 330px);
+    margin-top: 4rem;
+    max-width: 1600px;
+  }
+
+  .roadmap-section {
+    width: calc(100vw - 330px);
+    gap: 2rem;
+    max-width: 1600px;
+
+    .single-roadmap {
+      position: inherit;
+      display: block;
+      padding-bottom: 4rem;
+
+      .header-container p {
+        font-size: 16px;
+      }
+
+      &-item {
+        margin-top: 2rem;
+      }
+
+      .text {
+        padding-top: 2rem;
+        padding-bottom: 0;
+
+        h3 {
+          font-size: 18px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+
+      a {
+        font-size: 18px;
+      }
+
+      .body1 {
+        font-size: 16px;
+        color: $color-grey;
+      }
+
+      .description {
+        margin-bottom: 10px;
+      }
+
+      .upvotes-btn {
+        padding: 10px 15px;
+      }
+    }
+  }
 }

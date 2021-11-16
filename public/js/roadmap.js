@@ -106,7 +106,7 @@ function createRoadmap(data, type) {
     <p class="body1">${type}</p>
   </div>
   <a href="feedback-detail.html?id=${_id}">${title}</a>
-  <p class="body1">${description}</p>
+  <p class="body1 description">${description}</p>
   <button class="category-btn">${category}</button>
   <div class="container">
     <button
@@ -155,6 +155,4 @@ function toggleSingleRoadmap(e) {
   }
 }
 
-displayRoadmap();
-
-// window.addEventListener('DOMContentLoaded', displayRoadmap);
+window.addEventListener('DOMContentLoaded', displayRoadmap);
