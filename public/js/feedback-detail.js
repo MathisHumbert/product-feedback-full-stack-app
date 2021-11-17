@@ -2,9 +2,11 @@ import getFeedback from './utils-feedback/getFeedback.js';
 
 window.addEventListener('DOMContentLoaded', getFeedback);
 
+// comment form
 const commentForm = document.querySelector('.comment-form');
 const commentInput = document.querySelector('.comment-input');
 const charLeft = document.querySelector('.characters-left');
+
 const params = window.location.search;
 const id = new URLSearchParams(params).get('id');
 

@@ -116,11 +116,17 @@ const toggleUpvoted = async (req, res) => {
 };
 
 const getComments = async (req, res) => {
+  const { content, user } = req.body;
+
   const feedback = await Feedback.findOne({ _id: req.params.id }).select(
     'comments'
   );
+
   const comments = feedback.comments;
-  comments.push(req.body);
+  const newComment = { id: comments.length + 1, content, user };
+
+  comments.push(newComment);
+
   const result = await Feedback.findOneAndUpdate(
     { _id: req.params.id },
     { comments: comments },

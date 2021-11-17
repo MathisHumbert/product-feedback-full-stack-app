@@ -16,10 +16,24 @@ function displayAllComments(comments) {
     }
     allComments.appendChild(commentEl);
   });
+
+  // reply form
+  const replyForm = document.querySelectorAll('.reply-form');
+  const replyInput = document.querySelectorAll('.reply-input');
+
+  replyForm.forEach((repForm) => repForm.addEventListener('submit', postReply));
+
+  async function postReply(e) {
+    e.preventDefault();
+    console.log(e.target);
+    replyInput.forEach((input) => {
+      console.log(input.parentElement.dataset.id);
+    });
+  }
 }
 
 const createComment = (comment) => {
-  const { content, user } = comment;
+  const { id, content, user } = comment;
   const { image, name, username } = user;
   return `
     <div class="main-comment-container">
@@ -36,8 +50,8 @@ const createComment = (comment) => {
         <div class="main-text">
         ${content}
         </div>
-        <form action="#" class="reply-form">
-          <textarea class="reply-input" required placeholder="Type your comment here"></textarea>
+        <form class="reply-form" data-id="${id}">
+          <textarea class="reply-input" placeholder="Type your comment here"></textarea>
           <input type="submit" value="Post Reply" class="button1 reply-btn">
         </form>
         </div>
@@ -46,7 +60,7 @@ const createComment = (comment) => {
 
 const createReply = (reply, commentEl) => {
   reply.forEach((rep) => {
-    const { content, replyingTo, user, replies } = rep;
+    const { id, content, replyingTo, user, replies } = rep;
     const { image, name, username } = user;
 
     const replyEl = document.createElement('article');
@@ -66,8 +80,8 @@ const createReply = (reply, commentEl) => {
         <div class="main-text">
         <span class="rep-person">@${replyingTo}</span> ${content}
         </div>
-        <form action="#" class="reply-form">
-          <textarea class="reply-input" required placeholder="Type your comment here"></textarea>
+        <form class="reply-form" data-id="${id}">
+          <textarea class="reply-input" placeholder="Type your comment here"></textarea>
           <input type="submit" value="Post Reply" class="button1 reply-btn">
         </form>
         </div>
