@@ -28,12 +28,13 @@
 .reply-input,
 .comment-input {
   background: $color-background;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 5px;
   color: $color-special-black;
   font-size: 13px;
   padding: 10px;
   cursor: pointer;
+  resize: none;
 
   &:focus {
     outline-color: $color-blue;
@@ -163,8 +164,11 @@
     color: $color-special-black;
   }
 
-  .comment-input {
+  .text-area-container {
     margin: 1rem 0 10px 0;
+  }
+
+  .comment-input {
     width: 100%;
     height: 80px;
 

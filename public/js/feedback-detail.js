@@ -21,7 +21,8 @@ async function postComment(e) {
   const content = commentInput.value;
 
   if (!content) {
-    console.log('error');
+    errorHandler();
+    return;
   }
 
   try {
@@ -43,4 +44,18 @@ async function postComment(e) {
     console.log(error);
   }
   // create a new comment with back end POST
+}
+
+function errorHandler() {
+  console.log('hello');
+  commentInput.style.borderColor = 'red';
+  const error = document.createElement('span');
+  error.innerHTML = `Can't be empty`;
+  error.className = 'error-message';
+  commentInput.parentElement.appendChild(error);
+
+  setTimeout(() => {
+    commentInput.style.borderColor = 'transparent';
+    error.remove();
+  }, 3000);
 }
