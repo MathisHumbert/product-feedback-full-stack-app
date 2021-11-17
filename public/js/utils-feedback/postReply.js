@@ -6,7 +6,11 @@ async function postReply(e, replyInput) {
   e.preventDefault();
 
   let targetNum = '';
-  let content = e.target.children[0].children[0].value;
+  const content = e.target.children[0].children[0].value;
+  const replyingTo =
+    e.target.parentElement.children[0].children[0].children[1].children[1].textContent.split(
+      '@'
+    )[1];
   replyInput.forEach((input) => {
     if (e.target.dataset.id === input.parentElement.parentElement.dataset.id) {
       targetNum = e.target.dataset.id;
@@ -14,23 +18,21 @@ async function postReply(e, replyInput) {
   });
 
   if (content === '') {
-    console.log(e.target.children[0]);
     errorHandler(e.target.children[0]);
     return;
   }
 
-  console.log(targetNum);
   try {
-    const { data } = await axios.post(`/api/v1/feedbacks//replys/${id}`, {
+    await axios.post(`/api/v1/feedbacks//replys/${id}`, {
       replyId: targetNum,
       content,
+      replyingTo,
       user: {
         image: '../assets/user-images/image-zena.jpg',
         name: 'Zena Kelley',
         username: 'velvetround',
       },
     });
-    console.log(data);
     getFeedback();
   } catch (error) {
     console.log(error);

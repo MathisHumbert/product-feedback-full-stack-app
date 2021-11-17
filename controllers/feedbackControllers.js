@@ -135,33 +135,33 @@ const postComment = async (req, res) => {
 };
 
 const postReply = async (req, res) => {
-  const { content, user } = req.body;
-  const id = req.body.replyId;
-  let ids = id.split('');
+  const { content, user, replyingTo } = req.body;
+  const id = req.body.replyId.split('')[0];
 
   const feedback = await Feedback.findOne({ _id: req.params.id });
   let comments = feedback.comments;
-  const comment = comments.filter((com) => com.id == ids[0])[0];
+  const comment = comments.filter((com) => com.id == id)[0];
 
   if (!comment.replies) {
     comment.replies = [
       {
-        id: `${id}1`,
+        id: `${id}01`,
         content,
-        replyingTo: comment.user.username,
+        replyingTo,
         user,
       },
     ];
-  } else if (ids.length === 1) {
+  } else {
     comment.replies.push({
-      id: `${id}${comment.replies.length + 1}`,
+      id: `${id}${
+        comment.replies.length + 1 >= 10
+          ? comment.replies.length + 1
+          : `0${comment.replies.length + 1}`
+      }`,
       content,
-      replyingTo: comment.user.username,
+      replyingTo,
       user,
     });
-  } else {
-    ids.splice(0, 1);
-    anyReplies(ids, comment.replies, content, user, comments);
   }
 
   const result = await Feedback.findOneAndUpdate(
@@ -173,33 +173,6 @@ const postReply = async (req, res) => {
   res.status(200).json({ result, success: 'created' });
 };
 
-async function anyReplies(ids, replies, content, user, comments) {
-  const reply = replies[ids[0] - 1];
-
-  console.log(reply);
-
-  if (!reply.replies) {
-    reply.replies = [
-      {
-        id: `${reply.id}1`,
-        content,
-        replyingTo: reply.user.username,
-        user,
-      },
-    ];
-  } else if (ids.length === 1) {
-    reply.replies.push({
-      id: `${reply.id}${reply.replies.length + 1}`,
-      content,
-      replyingTo: reply.user.username,
-      user,
-    });
-  } else {
-    ids.splice(0, 1);
-    return anyReplies(ids, reply.replies, content, user, comments);
-  }
-}
-
 module.exports = {
   getAllFeedback,
   getSingleFeedback,
@@ -210,3 +183,53 @@ module.exports = {
   postComment,
   postReply,
 };
+
+// this was my previous code for adding reply, I create a reply array for each repy element
+
+// if (!comment.replies) {
+//   comment.replies = [
+//     {
+//       id: `${id}1`,
+//       content,
+//       replyingTo: comment.user.username,
+//       user,
+//     },
+//   ];
+// } else if (ids.length === 1) {
+//   comment.replies.push({
+//     id: `${id}${comment.replies.length + 1}`,
+//     content,
+//     replyingTo: comment.user.username,
+//     user,
+//   });
+// } else {
+//   ids.splice(0, 1);
+//   anyReplies(ids, comment.replies, content, user, comments);
+// }
+
+// async function anyReplies(ids, replies, content, user, comments) {
+//   const reply = replies[ids[0] - 1];
+
+//   console.log(reply);
+
+//   if (!reply.replies) {
+//     reply.replies = [
+//       {
+//         id: `${reply.id}1`,
+//         content,
+//         replyingTo: reply.user.username,
+//         user,
+//       },
+//     ];
+//   } else if (ids.length === 1) {
+//     reply.replies.push({
+//       id: `${reply.id}${reply.replies.length + 1}`,
+//       content,
+//       replyingTo: reply.user.username,
+//       user,
+//     });
+//   } else {
+//     ids.splice(0, 1);
+//     return anyReplies(ids, reply.replies, content, user, comments);
+//   }
+// }
