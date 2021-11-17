@@ -115,12 +115,10 @@ const toggleUpvoted = async (req, res) => {
   res.status(200).json(result);
 };
 
-const getComments = async (req, res) => {
+const postComment = async (req, res) => {
   const { content, user } = req.body;
 
-  const feedback = await Feedback.findOne({ _id: req.params.id }).select(
-    'comments'
-  );
+  const feedback = await Feedback.findOne({ _id: req.params.id });
 
   const comments = feedback.comments;
   const newComment = { id: comments.length + 1, content, user };
@@ -136,12 +134,73 @@ const getComments = async (req, res) => {
   res.status(200).json({ result, success: 'created' });
 };
 
+const postReply = async (req, res) => {
+  const { content, user } = req.body;
+  const id = req.body.replyId;
+  let ids = id.split('');
+
+  const feedback = await Feedback.findOne({ _id: req.params.id });
+  let comments = feedback.comments;
+  const comment = comments.filter((com) => com.id == ids[0])[0];
+
+  if (!comment.replies) {
+    comment.replies = [
+      {
+        id: `${id}1`,
+        content,
+        user,
+      },
+    ];
+  } else if (ids.length === 1) {
+    comment.replies.push({
+      id: `${id}${comment.replies.length + 1}`,
+      content,
+      user,
+    });
+  } else {
+    ids.splice(0, 1);
+    anyReplies(ids, comment.replies, content, user, comments);
+  }
+
+  const result = await Feedback.findOneAndUpdate(
+    { _id: req.params.id },
+    { comments: comments },
+    { new: true, runValidators: true }
+  );
+
+  res.status(200).json({ result, success: 'created' });
+};
+
+async function anyReplies(ids, replies, content, user, comments) {
+  const reply = replies[ids[0] - 1];
+
+  if (!reply.replies) {
+    reply.replies = [
+      {
+        id: `${reply.id}1`,
+        content,
+        user,
+      },
+    ];
+  } else if (ids.length === 1) {
+    reply.replies.push({
+      id: `${reply.id}${reply.replies.length + 1}`,
+      content,
+      user,
+    });
+  } else {
+    ids.splice(0, 1);
+    return anyReplies(ids, reply.replies, content, user, comments);
+  }
+}
+
 module.exports = {
   getAllFeedback,
   getSingleFeedback,
   createFeedback,
   editFeedback,
   deleteAllFeedback,
-  getComments,
   toggleUpvoted,
+  postComment,
+  postReply,
 };

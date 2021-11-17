@@ -13,7 +13,6 @@ const id = new URLSearchParams(params).get('id');
 const getFeedback = async () => {
   try {
     allComments.innerHTML = '';
-    console.log(allComments);
     const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
 
     feedbackContainer.innerHTML = createFeedback([data]);

@@ -1,4 +1,6 @@
 const allComments = document.querySelector('.all-comments');
+const params = window.location.search;
+const id = new URLSearchParams(params).get('id');
 
 function displayAllComments(comments) {
   const numberOfComments = document.createElement('h3');
@@ -25,10 +27,29 @@ function displayAllComments(comments) {
 
   async function postReply(e) {
     e.preventDefault();
-    console.log(e.target);
+
+    let targetNum = '';
+    let content = e.target.children[0].value;
     replyInput.forEach((input) => {
-      console.log(input.parentElement.dataset.id);
+      if (e.target.dataset.id === input.parentElement.dataset.id) {
+        targetNum = e.target.dataset.id;
+      }
     });
+
+    try {
+      const { data } = await axios.post(`/api/v1/feedbacks//replys/${id}`, {
+        replyId: targetNum,
+        content,
+        user: {
+          image: '../assets/user-images/image-zena.jpg',
+          name: 'Zena Kelley',
+          username: 'velvetround',
+        },
+      });
+      console.log(data.result);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
