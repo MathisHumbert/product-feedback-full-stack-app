@@ -1,6 +1,5 @@
+import postReply from './postReply.js';
 const allComments = document.querySelector('.all-comments');
-const params = window.location.search;
-const id = new URLSearchParams(params).get('id');
 
 function displayAllComments(comments) {
   const numberOfComments = document.createElement('h3');
@@ -19,38 +18,13 @@ function displayAllComments(comments) {
     allComments.appendChild(commentEl);
   });
 
-  // reply form
   const replyForm = document.querySelectorAll('.reply-form');
   const replyInput = document.querySelectorAll('.reply-input');
-
-  replyForm.forEach((repForm) => repForm.addEventListener('submit', postReply));
-
-  async function postReply(e) {
-    e.preventDefault();
-
-    let targetNum = '';
-    let content = e.target.children[0].value;
-    replyInput.forEach((input) => {
-      if (e.target.dataset.id === input.parentElement.dataset.id) {
-        targetNum = e.target.dataset.id;
-      }
-    });
-
-    try {
-      const { data } = await axios.post(`/api/v1/feedbacks//replys/${id}`, {
-        replyId: targetNum,
-        content,
-        user: {
-          image: '../assets/user-images/image-zena.jpg',
-          name: 'Zena Kelley',
-          username: 'velvetround',
-        },
-      });
-      console.log(data.result);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  replyForm.forEach((repForm) =>
+    repForm.addEventListener('submit', (e) => {
+      postReply(e, replyInput);
+    })
+  );
 }
 
 const createComment = (comment) => {
@@ -72,8 +46,10 @@ const createComment = (comment) => {
         ${content}
         </div>
         <form class="reply-form" data-id="${id}">
-          <textarea class="reply-input" placeholder="Type your comment here"></textarea>
-          <input type="submit" value="Post Reply" class="button1 reply-btn">
+        <div class="reply-input-container">
+        <textarea class="reply-input" placeholder="Type your comment here"></textarea>
+        </div>
+        <input type="submit" value="Post Reply" class="button1 reply-btn">
         </form>
         </div>
     `;
@@ -102,7 +78,9 @@ const createReply = (reply, commentEl) => {
         <span class="rep-person">@${replyingTo}</span> ${content}
         </div>
         <form class="reply-form" data-id="${id}">
+        <div class="reply-input-container">
           <textarea class="reply-input" placeholder="Type your comment here"></textarea>
+        </div>
           <input type="submit" value="Post Reply" class="button1 reply-btn">
         </form>
         </div>

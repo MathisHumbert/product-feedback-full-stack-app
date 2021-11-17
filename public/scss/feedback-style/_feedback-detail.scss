@@ -122,6 +122,9 @@
     gap: 10px;
     overflow: hidden;
     @include basicTransition($value: height);
+    .reply-input-container {
+      width: 100%;
+    }
     .reply-input {
       height: 80px;
       width: 100%;

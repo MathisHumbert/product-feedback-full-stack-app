@@ -148,6 +148,7 @@ const postReply = async (req, res) => {
       {
         id: `${id}1`,
         content,
+        replyingTo: comment.user.username,
         user,
       },
     ];
@@ -155,6 +156,7 @@ const postReply = async (req, res) => {
     comment.replies.push({
       id: `${id}${comment.replies.length + 1}`,
       content,
+      replyingTo: comment.user.username,
       user,
     });
   } else {
@@ -174,11 +176,14 @@ const postReply = async (req, res) => {
 async function anyReplies(ids, replies, content, user, comments) {
   const reply = replies[ids[0] - 1];
 
+  console.log(reply);
+
   if (!reply.replies) {
     reply.replies = [
       {
         id: `${reply.id}1`,
         content,
+        replyingTo: reply.user.username,
         user,
       },
     ];
@@ -186,6 +191,7 @@ async function anyReplies(ids, replies, content, user, comments) {
     reply.replies.push({
       id: `${reply.id}${reply.replies.length + 1}`,
       content,
+      replyingTo: reply.user.username,
       user,
     });
   } else {

@@ -1535,6 +1535,10 @@ body {
   transition: height 0.4s ease-in-out;
 }
 
+.all-comments .reply-form .reply-input-container {
+  width: 100%;
+}
+
 .all-comments .reply-form .reply-input {
   height: 80px;
   width: 100%;
