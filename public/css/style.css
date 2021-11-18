@@ -89,7 +89,7 @@ input[type='submit']:focus {
 }
 
 .button4:hover {
-  background: #656ea3;
+  background: #E98888;
 }
 
 .uppercase {
@@ -942,19 +942,25 @@ body {
 }
 
 .create-form .own-select,
-.edit-form .own-select {
+.create-form .own-statu,
+.edit-form .own-select,
+.edit-form .own-statu {
   position: relative;
   cursor: pointer;
   border: 1px solid transparent;
 }
 
 .create-form .own-select p,
-.edit-form .own-select p {
+.create-form .own-statu p,
+.edit-form .own-select p,
+.edit-form .own-statu p {
   color: #3a4374;
 }
 
 .create-form .own-select.active,
-.edit-form .own-select.active {
+.create-form .own-statu.active,
+.edit-form .own-select.active,
+.edit-form .own-statu.active {
   border-color: #4661e6;
 }
 
@@ -1001,13 +1007,10 @@ body {
   transition: height 0.4s ease-in-out;
 }
 
-.select-options.open,
-.statu-options.open {
-  height: 208px;
-}
-
 .select-options .single-select-container,
-.statu-options .single-select-container {
+.select-options .single-statu-container,
+.statu-options .single-select-container,
+.statu-options .single-statu-container {
   border-bottom: 1px solid rgba(58, 67, 116, 0.15);
   padding: 10px 20px;
   display: -webkit-box;
@@ -1023,7 +1026,9 @@ body {
 }
 
 .select-options .single-select-container .body1,
-.statu-options .single-select-container .body1 {
+.select-options .single-statu-container .body1,
+.statu-options .single-select-container .body1,
+.statu-options .single-statu-container .body1 {
   color: #647196;
   text-transform: capitalize;
   cursor: pointer;
@@ -1034,25 +1039,41 @@ body {
 }
 
 .select-options .single-select-container .body1:hover,
-.statu-options .single-select-container .body1:hover {
+.select-options .single-statu-container .body1:hover,
+.statu-options .single-select-container .body1:hover,
+.statu-options .single-statu-container .body1:hover {
   color: #ad1fea;
 }
 
 .select-options .single-select-container img,
-.statu-options .single-select-container img {
+.select-options .single-statu-container img,
+.statu-options .single-select-container img,
+.statu-options .single-statu-container img {
   opacity: 0;
   -webkit-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
 }
 
 .select-options .single-select-container.open img,
-.statu-options .single-select-container.open img {
+.select-options .single-statu-container.open img,
+.statu-options .single-select-container.open img,
+.statu-options .single-statu-container.open img {
   opacity: 1;
 }
 
 .select-options .single-select-container:last-child,
-.statu-options .single-select-container:last-child {
+.select-options .single-statu-container:last-child,
+.statu-options .single-select-container:last-child,
+.statu-options .single-statu-container:last-child {
   border-bottom: none;
+}
+
+.select-options.open {
+  height: 204px;
+}
+
+.statu-options.open {
+  height: 163px;
 }
 
 .error-message {

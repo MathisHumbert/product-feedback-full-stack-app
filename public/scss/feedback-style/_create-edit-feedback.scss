@@ -112,7 +112,8 @@
     resize: none;
   }
 
-  .own-select {
+  .own-select,
+  .own-statu {
     position: relative;
     cursor: pointer;
     border: 1px solid transparent;
@@ -152,11 +153,8 @@
   z-index: 2;
   @include basicTransition($value: height);
 
-  &.open {
-    height: 208px;
-  }
-
-  .single-select-container {
+  .single-select-container,
+  .single-statu-container {
     border-bottom: 1px solid rgba(58, 67, 116, 0.15);
     padding: 10px 20px;
     @include flexBasic;
@@ -189,6 +187,17 @@
     &:last-child {
       border-bottom: none;
     }
+  }
+}
+
+.select-options {
+  &.open {
+    height: 204px;
+  }
+}
+.statu-options {
+  &.open {
+    height: 163px;
   }
 }
 
