@@ -18,12 +18,11 @@ async function createFeedback(e) {
   }
 
   try {
-    const { data } = await axios.post('/api/v1/feedbacks', {
+    await axios.post('/api/v1/feedbacks', {
       category,
       title,
       description,
     });
-    console.log(data);
     window.location.href = '/index.html';
   } catch (error) {
     console.log(error);
