@@ -2,6 +2,7 @@
   width: calc(100vw - 48px);
   margin: 0 auto;
   padding: 2rem 0;
+  max-width: 1000px;
 
   .header {
     @include flex($justify: space-between, $align: center);
@@ -122,9 +123,11 @@
     gap: 10px;
     overflow: hidden;
     @include basicTransition($value: height);
+
     .reply-input-container {
       width: 100%;
     }
+
     .reply-input {
       height: 80px;
       width: 100%;
@@ -187,6 +190,107 @@
     p {
       font-size: 13px;
       color: $color-grey;
+    }
+  }
+}
+
+@include tabletScreen {
+  .main-feedback-detail {
+    width: calc(100vw - 80px);
+    padding: 2rem 0;
+
+    .single-feedback-container {
+      margin-top: 20px;
+    }
+  }
+
+  .reply-input,
+  .comment-input {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  .all-comments {
+    padding: 2rem;
+    margin-top: 20px;
+
+    .main-comment {
+      padding-top: 25px;
+      padding-bottom: 25px;
+
+      .reply-comment {
+        padding-top: 25px;
+      }
+
+      .info {
+        h4 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 14px;
+        }
+        gap: 30px;
+      }
+
+      .text {
+        font-size: 15px;
+      }
+
+      .main-text {
+        font-size: 15px;
+        margin-left: 70px;
+      }
+    }
+
+    .reply-form {
+      padding-top: 1rem;
+      gap: 20px;
+      width: calc(100% - 70px);
+      margin-left: auto;
+
+      .reply-input-container {
+        width: 100%;
+      }
+
+      .reply-input {
+        &::placeholder {
+          font-size: 15px;
+        }
+      }
+
+      .reply-btn {
+        max-height: 44px;
+        padding: 5px 14px;
+      }
+    }
+
+    .open .reply-form {
+      height: 102px;
+    }
+
+    .rep-person {
+      font-size: 15px;
+    }
+  }
+
+  .comment-form {
+    padding: 2rem;
+    margin-top: 20px;
+
+    .text-area-container {
+      margin: 1rem 0;
+    }
+
+    .comment-input {
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+
+    .footer {
+      p {
+        font-size: 15px;
+      }
     }
   }
 }
