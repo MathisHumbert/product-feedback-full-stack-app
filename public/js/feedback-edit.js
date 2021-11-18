@@ -54,10 +54,15 @@ const statuValue = document.querySelector('.statu-value');
 const titleInput = document.querySelector('.title');
 const detailInput = document.querySelector('.detail');
 
+const params = window.location.search;
+const id = new URLSearchParams(params).get('id');
+
 window.addEventListener('DOMContentLoaded', displayActualData);
 
 async function displayActualData() {
   try {
+    const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
