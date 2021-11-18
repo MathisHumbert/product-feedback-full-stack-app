@@ -1,9 +1,9 @@
-import createFeedback from '../utils/createFeedback.js';
 import {
   displayAllComments,
   showReply,
 } from '../utils-feedback/displayComments.js';
 import upvoteHandler from '../utils/upvoteHandler.js';
+import createHtmlFeedback from '../utils/createHtmlFeedback.js';
 
 const feedbackContainer = document.querySelector('.single-feedback-container');
 const allComments = document.querySelector('.all-comments');
@@ -15,7 +15,7 @@ const getFeedback = async () => {
     allComments.innerHTML = '';
     const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
 
-    feedbackContainer.innerHTML = createFeedback([data]);
+    feedbackContainer.innerHTML = createHtmlFeedback([data]);
     upvoteHandler(feedbackContainer);
 
     displayAllComments(data.comments);

@@ -1,4 +1,4 @@
-import createFeedback from './createFeedback.js';
+import createHtmlFeedback from './createHtmlFeedback.js';
 import upvoteHandler from './upvoteHandler.js';
 
 const sortDOM = document.querySelector('.sug-container');
@@ -36,7 +36,7 @@ async function displaySortedFeedbacks(e) {
       },
     });
 
-    allFeedback.innerHTML = createFeedback(data.feedbacks);
+    allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);
     localStorage.setItem('sortFeedback', e.target.textContent);
     upvoteHandler(allFeedback);
   } catch (error) {

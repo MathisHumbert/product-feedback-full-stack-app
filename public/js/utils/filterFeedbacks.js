@@ -1,4 +1,4 @@
-import createFeedback from './createFeedback.js';
+import createHtmlFeedback from './createHtmlFeedback.js';
 import roadmapNumberHandler from './getRoadmapNum.js';
 import upvoteHandler from './upvoteHandler.js';
 
@@ -28,7 +28,7 @@ async function displayFilteredFeedbacks(e) {
         sort,
       },
     });
-    allFeedback.innerHTML = createFeedback(data.feedbacks);
+    allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);
     console.log(data.feedbacks);
     roadmapNumberHandler(data.feedbacks);
     localStorage.setItem('filterFeedback', e.target.textContent);

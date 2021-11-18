@@ -1,4 +1,4 @@
-const createFeedback = (feedbacks) => {
+const createHtmlFeedback = (feedbacks) => {
   if (feedbacks.length === 0) {
     const noFeedback = `
     <div class="no-feedback">
@@ -50,4 +50,4 @@ const createFeedback = (feedbacks) => {
       .join('');
 };
 
-export default createFeedback;
+export default createHtmlFeedback;

@@ -1,7 +1,7 @@
 import roadmapNumberHandler from './getRoadmapNum.js';
 import { sortHandler } from './sortFeedback.js';
 import { filterHandler } from './filterFeedbacks.js';
-import createFeedback from './createFeedback.js';
+import createHtmlFeedback from './createHtmlFeedback.js';
 import upvoteHandler from './upvoteHandler.js';
 
 const allFeedback = document.querySelector('.all-feedbacks');
@@ -25,7 +25,7 @@ const displayAllFeedbacks = async () => {
       },
     });
 
-    allFeedback.innerHTML = createFeedback(data.feedbacks);
+    allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);
 
     upvoteHandler(allFeedback);
     roadmapNumberHandler(data.feedbacks);
