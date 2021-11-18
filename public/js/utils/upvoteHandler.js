@@ -8,7 +8,7 @@ async function upvoteBtnFeedback(e) {
   let target = e.currentTarget;
   const id = target.dataset.id;
   try {
-    const { data } = await axios.post('/api/v1/feedbacks/upvoted', {
+    const { data } = await axios.put('/api/v1/feedbacks/upvoted', {
       id,
     });
     const { upvotes, upvoted } = data;

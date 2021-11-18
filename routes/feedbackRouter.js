@@ -16,10 +16,10 @@ router.route('/').get(getAllFeedback).post(createFeedback);
 router
   .route('/:id')
   .get(getSingleFeedback)
-  .patch(editFeedback)
-  .delete(deleteAllFeedback);
+  .delete(deleteAllFeedback)
+  .patch(editFeedback);
 
-router.post('/upvoted', toggleUpvoted);
+router.put('/upvoted', toggleUpvoted);
 
 router.route('/comments/:id').post(postComment);
 router.route('/replys/:id').post(postReply);

@@ -1,4 +1,4 @@
-import formHandler from './utils-feedback/createForm.js';
+import createFeedback from './utils-feedback/createFeedback.js';
 import { toggleCategory, selectHandler } from './utils-feedback/showMore.js';
 const selectClick = document.querySelector('.select-click');
 const singleSelect = document.querySelectorAll('.single-select');
@@ -10,4 +10,4 @@ singleSelect.forEach((select) =>
 
 const form = document.querySelector('.create-form');
 
-form.addEventListener('submit', formHandler);
+form.addEventListener('submit', createFeedback);

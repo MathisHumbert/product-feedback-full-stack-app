@@ -69,11 +69,11 @@ const createFeedback = async (req, res) => {
 };
 
 const editFeedback = async (req, res) => {
-  const { title, category, description } = req.body;
+  const { title, description } = req.body;
 
-  if (!title || !category || !description) {
+  if (!title || !description) {
     throw new CustomError.BadRequestError(
-      'title, category and description fields cannot be empty'
+      'title and description fields cannot be empty'
     );
   }
 

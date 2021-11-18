@@ -1,6 +1,7 @@
 import {
   toggleSelected,
   displaySelected,
+  displayRightOption,
 } from './utils-feedback/showMoreEdit.js';
 
 const categoryBtn = document.querySelector('.category-click');
@@ -63,5 +64,9 @@ editBtn.addEventListener('click', editFeedback);
 
 async function editFeedback(e) {
   e.preventDefault();
-  console.log('edited');
+
+  const category = selectValue.innerHTML;
+  const status = statuValue.innerHTML;
+  const title = titleInput.value;
+  const description = detailInput.value;
 }

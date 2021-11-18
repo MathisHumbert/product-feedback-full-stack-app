@@ -3,7 +3,7 @@ const titleInput = document.querySelector('.title');
 const detailInput = document.querySelector('.detail');
 const selectedValue = document.querySelector('.selected-value');
 
-async function formHandler(e) {
+async function createFeedback(e) {
   e.preventDefault();
   const category = selectedValue.textContent;
   const title = titleInput.value;
@@ -36,13 +36,13 @@ function errorHandler(element) {
   error.innerHTML = `Can't be empty`;
   error.className = 'error-message';
   element.parentElement.appendChild(error);
-  form.removeEventListener('submit', formHandler);
+  form.removeEventListener('submit', createFeedback);
 
   setTimeout(() => {
     element.style.borderColor = 'transparent';
     error.remove();
-    form.addEventListener('submit', formHandler);
+    form.addEventListener('submit', createFeedback);
   }, 3000);
 }
 
-export default formHandler;
+export default createFeedback;
