@@ -34,6 +34,31 @@ singleStatu.forEach((item) =>
 function displaySelected(e, element) {
   const value = e.target.textContent;
   const options = e.target.parentElement.parentElement;
-  const arrow = e.target.parentElement.parentElement.children[0].children[1];
-  console.log(element);
+  const arrow = options.parentElement.children[0].children[1];
+  const updatedValue = options.parentElement.children[0].children[0];
+
+  element.forEach((el) => {
+    el.parentElement.classList.remove('open');
+    if (el.textContent === value) {
+      el.parentElement.classList.add('open');
+    }
+  });
+
+  options.classList.remove('open');
+  updatedValue.textContent = value;
+  arrow.src = '../assets/shared/icon-arrow-down.svg';
+}
+
+const selectValue = document.querySelector('.select-value');
+const statuValue = document.querySelector('.statu-value');
+const titleInput = document.querySelector('.title');
+const detailInput = document.querySelector('.detail');
+
+window.addEventListener('DOMContentLoaded', displayActualData);
+
+async function displayActualData() {
+  try {
+  } catch (error) {
+    console.log(error);
+  }
 }
