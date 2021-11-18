@@ -6,6 +6,7 @@ import {
 import {
   displayActualData,
   editFeedback,
+  deleteFeedback,
 } from './utils-feedback/edit-delete-feedback.js';
 
 const categoryBtn = document.querySelector('.category-click');
@@ -13,9 +14,12 @@ const statuBtn = document.querySelector('.statu-click');
 const singleStatu = document.querySelectorAll('.single-statu');
 const singleSelect = document.querySelectorAll('.single-select');
 const editBtn = document.querySelector('.edit-btn');
+const deleteBtn = document.querySelector('.delete-btn');
 
 window.addEventListener('DOMContentLoaded', displayActualData);
 editBtn.addEventListener('click', editFeedback);
+deleteBtn.addEventListener('click', deleteFeedback);
+
 categoryBtn.addEventListener('click', toggleSelected);
 statuBtn.addEventListener('click', toggleSelected);
 singleSelect.forEach((item) =>
@@ -28,15 +32,3 @@ singleStatu.forEach((item) =>
     displaySelected(e, singleStatu);
   })
 );
-
-const params = window.location.search;
-const id = new URLSearchParams(params).get('id');
-
-const deleteBtn = document.querySelector('.delete-btn');
-
-deleteBtn.addEventListener('click', deleteFeedback);
-
-async function deleteFeedback(e) {
-  e.preventDefault();
-  console.log('deleted');
-}

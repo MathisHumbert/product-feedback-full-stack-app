@@ -41,6 +41,7 @@
   h1 {
     color: $color-special-black;
     margin-bottom: 20px;
+    margin-top: 10px;
   }
 
   .button-container {
@@ -218,6 +219,7 @@
 
   .create-feedback,
   .edit-feedback {
+    margin-top: 1rem;
     padding: 42px;
 
     img:first-child {

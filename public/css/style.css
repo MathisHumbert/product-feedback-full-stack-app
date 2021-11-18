@@ -855,6 +855,7 @@ body {
 .edit-feedback h1 {
   color: #3a4374;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .create-feedback .button-container,
@@ -1091,6 +1092,7 @@ body {
   }
   .create-feedback,
   .edit-feedback {
+    margin-top: 1rem;
     padding: 42px;
   }
   .create-feedback img:first-child,

@@ -6,7 +6,9 @@ const plannedHeader = document.querySelector('.planned-header');
 const progressHeader = document.querySelector('.progress-header');
 const liveHeader = document.querySelector('.live-header');
 
-const displayRoadmap = async () => {
+window.addEventListener('DOMContentLoaded', displayRoadmap);
+
+async function displayRoadmap() {
   try {
     const { data } = await axios.get('/api/v1/feedbacks');
     const feedbacks = data.feedbacks;
@@ -31,31 +33,28 @@ const displayRoadmap = async () => {
     progressHeader.textContent = `In-Progress (${inProgress})`;
     liveHeader.textContent = `Live (${live})`;
 
-    // planned
     const plannedEl = document.createElement('article');
     plannedEl.innerHTML = `
   <div class="text">
-   <h3>Planned (${planned})</h3>
+    <h3>Planned (${planned})</h3>
     <p class="body1">Ideas prioritized for research</p>
   </div>
   `;
     plannedEl.className = 'single-roadmap orange';
 
-    // in-progress
     const progressEl = document.createElement('article');
     progressEl.innerHTML = `
   <div class="text">
-   <h3>In-Progress (${inProgress})</h3>
+    <h3>In-Progress (${inProgress})</h3>
     <p class="body1">Currently being developed</p>
   </div>
   `;
     progressEl.className = 'single-roadmap purple active';
 
-    // planned
     const liveEl = document.createElement('article');
     liveEl.innerHTML = `
   <div class="text">
-   <h3>Live (${live})</h3>
+    <h3>Live (${live})</h3>
     <p class="body1">Ideas prioritized for research</p>
   </div>
   `;
@@ -94,7 +93,7 @@ const displayRoadmap = async () => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 function createRoadmap(data, type) {
   const { _id, title, description, upvoted, upvotes, comments, category } =
@@ -154,5 +153,3 @@ function toggleSingleRoadmap(e) {
     singleRoadmap[2].classList.add('active');
   }
 }
-
-window.addEventListener('DOMContentLoaded', displayRoadmap);

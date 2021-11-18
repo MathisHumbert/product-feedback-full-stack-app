@@ -9,6 +9,7 @@ const titleInput = document.querySelector('.title');
 const detailInput = document.querySelector('.detail');
 const singleSelect = document.querySelectorAll('.single-select');
 const singleStatu = document.querySelectorAll('.single-statu');
+const editName = document.querySelector('.edit-name');
 
 async function displayActualData() {
   try {
@@ -17,6 +18,7 @@ async function displayActualData() {
     statuValue.innerHTML = data.status;
     titleInput.value = data.title;
     detailInput.value = data.description;
+    editName.innerHTML = `Editing ${data.title}`;
 
     displayRightOption(singleSelect, data.category);
     displayRightOption(singleStatu, data.status);
@@ -46,4 +48,13 @@ async function editFeedback(e) {
   }
 }
 
-export { displayActualData, editFeedback };
+async function deleteFeedback(e) {
+  e.preventDefault();
+
+  try {
+    await axios.delete(`/api/v1/feedbacks/${id}`);
+    window.location.href = '/index.html';
+  } catch (error) {}
+}
+
+export { displayActualData, editFeedback, deleteFeedback };
