@@ -1,24 +1,15 @@
+import {
+  toggleSelected,
+  displaySelected,
+} from './utils-feedback/showMoreEdit.js';
+
 const categoryBtn = document.querySelector('.category-click');
 const statuBtn = document.querySelector('.statu-click');
+const singleStatu = document.querySelectorAll('.single-statu');
+const singleSelect = document.querySelectorAll('.single-select');
 
 categoryBtn.addEventListener('click', toggleSelected);
 statuBtn.addEventListener('click', toggleSelected);
-
-function toggleSelected(e) {
-  const options = e.currentTarget.parentElement.children[1];
-  const arrow = e.currentTarget.parentElement.children[0].children[1];
-
-  if (options.classList.contains('open')) {
-    options.classList.remove('open');
-    arrow.src = '../assets/shared/icon-arrow-down.svg';
-  } else {
-    options.classList.add('open');
-    arrow.src = '../assets/shared/icon-arrow-up.svg';
-  }
-}
-
-const singleStatu = document.querySelectorAll('.single-statu');
-const singleSelect = document.querySelectorAll('.single-select');
 
 singleSelect.forEach((item) =>
   item.addEventListener('click', (e) => {
@@ -30,24 +21,6 @@ singleStatu.forEach((item) =>
     displaySelected(e, singleStatu);
   })
 );
-
-function displaySelected(e, element) {
-  const value = e.target.textContent;
-  const options = e.target.parentElement.parentElement;
-  const arrow = options.parentElement.children[0].children[1];
-  const updatedValue = options.parentElement.children[0].children[0];
-
-  element.forEach((el) => {
-    el.parentElement.classList.remove('open');
-    if (el.textContent === value) {
-      el.parentElement.classList.add('open');
-    }
-  });
-
-  options.classList.remove('open');
-  updatedValue.textContent = value;
-  arrow.src = '../assets/shared/icon-arrow-down.svg';
-}
 
 const selectValue = document.querySelector('.select-value');
 const statuValue = document.querySelector('.statu-value');
@@ -63,7 +36,32 @@ async function displayActualData() {
   try {
     const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
     console.log(data);
+    selectValue.innerHTML = data.category;
+    statuValue.innerHTML = data.status;
+    titleInput.value = data.title;
+    detailInput.value = data.description;
+
+    displayRightOption(singleSelect, data.category);
+    displayRightOption(singleStatu, data.status);
   } catch (error) {
     console.log(error);
   }
+}
+
+const deleteBtn = document.querySelector('.delete-btn');
+
+deleteBtn.addEventListener('click', deleteFeedback);
+
+async function deleteFeedback(e) {
+  e.preventDefault();
+  console.log('deleted');
+}
+
+const editBtn = document.querySelector('.edit-btn');
+
+editBtn.addEventListener('click', editFeedback);
+
+async function editFeedback(e) {
+  e.preventDefault();
+  console.log('edited');
 }
