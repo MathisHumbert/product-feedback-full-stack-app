@@ -4,6 +4,7 @@ const params = window.location.search;
 const id = new URLSearchParams(params).get('id');
 
 const commentInput = document.querySelector('.comment-input');
+const charLeft = document.querySelector('.characters-left');
 
 async function postComment(e) {
   e.preventDefault();
@@ -15,20 +16,24 @@ async function postComment(e) {
   }
 
   try {
-    const { data } = await axios.post(`/api/v1/feedbacks/comments/${id}`, {
-      content,
-      user: {
-        image: '../assets/user-images/image-zena.jpg',
-        name: 'Zena Kelley',
-        username: 'velvetround',
+    await fetch(`/api/v1/feedbacks/comments/${id}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        content,
+        user: {
+          image: '../assets/user-images/image-zena.jpg',
+          name: 'Zena Kelley',
+          username: 'velvetround',
+        },
+      }),
+      headers: {
+        'Content-type': 'application/json',
       },
     });
-    console.log(data);
 
-    if (data.success === 'created') {
-      getFeedback();
-      commentInput.value = '';
-    }
+    getFeedback();
+    commentInput.value = '';
+    charLeft.textContent = `250 Characters left`;
   } catch (error) {
     console.log(error);
   }

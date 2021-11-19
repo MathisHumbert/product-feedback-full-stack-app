@@ -55,7 +55,6 @@ const getSingleFeedback = async (req, res) => {
 
 const createFeedback = async (req, res) => {
   const { title, category, description } = req.body;
-  console.log(title, category, description);
 
   if (!title || !category || !description) {
     throw new CustomError.BadRequestError(

@@ -7,12 +7,21 @@ function upvoteHandler(allFeedback) {
 async function upvoteBtnFeedback(e) {
   let target = e.currentTarget;
   const id = target.dataset.id;
-  try {
-    const { data } = await axios.put('/api/v1/feedbacks/upvoted', {
-      id,
-    });
-    const { upvotes, upvoted } = data;
 
+  try {
+    const response = await fetch('/api/v1/feedbacks/upvoted', {
+      method: 'PUT',
+      body: JSON.stringify({
+        id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
+    const data = await response.json();
+
+    const { upvotes, upvoted } = data;
     if (upvoted) {
       target.className = 'upvotes-btn active';
       target.children[0].src = '../assets/shared/icon-arrow-up-white.svg';

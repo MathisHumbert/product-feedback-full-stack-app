@@ -13,7 +13,9 @@ const editName = document.querySelector('.edit-name');
 
 async function displayActualData() {
   try {
-    const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
+    const response = await fetch(`/api/v1/feedbacks/${id}`);
+    const data = await response.json();
+
     selectValue.innerHTML = data.category;
     statuValue.innerHTML = data.status;
     titleInput.value = data.title;
@@ -36,13 +38,19 @@ async function editFeedback(e) {
   const description = detailInput.value;
 
   try {
-    await axios.patch(`/api/v1/feedbacks/${id}`, {
-      category,
-      status,
-      title,
-      description,
+    await fetch(`/api/v1/feedbacks/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        category,
+        status,
+        title,
+        description,
+      }),
+      headers: {
+        'Content-type': 'application/json',
+      },
     });
-    window.location.href = '/index.html';
+    window.location.href = './';
   } catch (error) {
     console.log(error);
   }
@@ -52,8 +60,10 @@ async function deleteFeedback(e) {
   e.preventDefault();
 
   try {
-    await axios.delete(`/api/v1/feedbacks/${id}`);
-    window.location.href = '/index.html';
+    await fetch(`/api/v1/feedbacks/${id}`, {
+      method: 'DELETE',
+    });
+    window.location.href = './';
   } catch (error) {}
 }
 

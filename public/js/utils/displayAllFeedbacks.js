@@ -18,12 +18,14 @@ const displayAllFeedbacks = async () => {
         ? 'all'
         : localStorage.getItem('filterFeedback');
 
-    const { data } = await axios.get('/api/v1/feedbacks', {
+    const response = await fetch('/api/v1/feedbacks', {
+      method: 'GET',
       headers: {
-        filter,
-        sort,
+        sort: sort,
+        filter: filter,
       },
     });
+    const data = await response.json();
 
     allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);
 

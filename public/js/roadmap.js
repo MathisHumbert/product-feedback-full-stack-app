@@ -10,7 +10,8 @@ window.addEventListener('DOMContentLoaded', displayRoadmap);
 
 async function displayRoadmap() {
   try {
-    const { data } = await axios.get('/api/v1/feedbacks');
+    const response = await fetch('/api/v1/feedbacks');
+    const data = await response.json();
     const feedbacks = data.feedbacks;
 
     let planned = 0;

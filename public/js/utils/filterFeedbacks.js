@@ -22,14 +22,16 @@ async function displayFilteredFeedbacks(e) {
       : localStorage.getItem('sortFeedback');
 
   try {
-    const { data } = await axios.get('/api/v1/feedbacks', {
+    const response = await fetch('/api/v1/feedbacks', {
+      method: 'GET',
       headers: {
-        filter,
-        sort,
+        sort: sort,
+        filter: filter,
       },
     });
+    const data = await response.json();
+
     allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);
-    console.log(data.feedbacks);
     roadmapNumberHandler(data.feedbacks);
     localStorage.setItem('filterFeedback', e.target.textContent);
     upvoteHandler(allFeedback);

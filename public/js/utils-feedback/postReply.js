@@ -23,16 +23,23 @@ async function postReply(e, replyInput) {
   }
 
   try {
-    await axios.post(`/api/v1/feedbacks//replys/${id}`, {
-      replyId: targetNum,
-      content,
-      replyingTo,
-      user: {
-        image: '../assets/user-images/image-zena.jpg',
-        name: 'Zena Kelley',
-        username: 'velvetround',
+    await fetch(`/api/v1/feedbacks//replys/${id}`, {
+      method: 'POST',
+      body: JSON.stringify({
+        replyId: targetNum,
+        content,
+        replyingTo,
+        user: {
+          image: '../assets/user-images/image-zena.jpg',
+          name: 'Zena Kelley',
+          username: 'velvetround',
+        },
+      }),
+      headers: {
+        'Content-type': 'application/json',
       },
     });
+
     getFeedback();
   } catch (error) {
     console.log(error);

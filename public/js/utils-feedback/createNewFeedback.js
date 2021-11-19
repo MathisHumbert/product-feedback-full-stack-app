@@ -18,12 +18,18 @@ async function createNewFeedback(e) {
   }
 
   try {
-    await axios.post('/api/v1/feedbacks', {
-      category,
-      title,
-      description,
+    await fetch('/api/v1/feedbacks', {
+      method: 'POST',
+      body: JSON.stringify({
+        category,
+        title,
+        description,
+      }),
+      headers: {
+        'Content-type': 'application/json',
+      },
     });
-    window.location.href = '/index.html';
+    window.location.href = './';
   } catch (error) {
     console.log(error);
   }

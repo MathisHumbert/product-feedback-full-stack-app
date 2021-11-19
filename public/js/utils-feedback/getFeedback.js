@@ -13,7 +13,8 @@ const id = new URLSearchParams(params).get('id');
 const getFeedback = async () => {
   try {
     allComments.innerHTML = '';
-    const { data } = await axios.get(`/api/v1/feedbacks/${id}`);
+    const response = await fetch(`/api/v1/feedbacks/${id}`);
+    const data = await response.json();
 
     feedbackContainer.innerHTML = createHtmlFeedback([data]);
     upvoteHandler(feedbackContainer);
