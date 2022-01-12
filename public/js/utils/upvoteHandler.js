@@ -10,7 +10,7 @@ async function upvoteBtnFeedback(e) {
 
   try {
     const response = await fetch('/api/v1/feedbacks/upvoted', {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify({
         id,
       }),

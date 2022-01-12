@@ -2,50 +2,35 @@ const Feedback = require('../models/Feedback');
 const CustomError = require('../errors');
 
 const getAllFeedback = async (req, res) => {
-  let { sort, filter } = req.headers;
+  const { filter, sort } = req.query;
+  const queryObject = {};
 
-  if (!sort && !filter) {
-    const feedbacks = await Feedback.find({}).sort('-upvotes');
-    return res.status(200).json({ feedbacks, num: feedbacks.length });
+  if (filter && filter !== 'all') {
+    queryObject.category = filter;
   }
-
-  if (filter === 'all') {
-    filter = undefined;
-  }
+  let result = Feedback.find(queryObject);
 
   if (sort === 'Most Upvotes') {
-    const feedbacks = await Feedback.find(
-      filter === undefined ? {} : { category: filter }
-    ).sort('-upvotes');
-    return res.status(200).json({ feedbacks, num: feedbacks.length });
+    result.sort('-upvotes');
+  }
+  if (sort === 'Least Upvotes') {
+    result.sort('upvotes');
   }
 
-  if (sort === 'Least Upvotes') {
-    const feedbacks = await Feedback.find(
-      filter === undefined ? {} : { category: filter }
-    ).sort('upvotes');
-    return res.status(200).json({ feedbacks, num: feedbacks.length });
-  }
+  let feedbacks = await result;
 
   if (sort === 'Most Comments') {
-    let feedbacks = await Feedback.find(
-      filter === undefined ? {} : { category: filter }
-    );
     feedbacks = feedbacks.sort((a, b) => {
       return b.comments.length - a.comments.length;
     });
-    return res.status(200).json({ feedbacks, num: feedbacks.length });
   }
-
   if (sort === 'Least Comments') {
-    let feedbacks = await Feedback.find(
-      filter === undefined ? {} : { category: filter }
-    );
     feedbacks = feedbacks.sort((a, b) => {
       return a.comments.length - b.comments.length;
     });
-    return res.status(200).json({ feedbacks, num: feedbacks.length });
   }
+
+  return res.status(200).json({ feedbacks, num: feedbacks.length });
 };
 
 const getSingleFeedback = async (req, res) => {

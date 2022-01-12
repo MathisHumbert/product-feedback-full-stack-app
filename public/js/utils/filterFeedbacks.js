@@ -26,13 +26,12 @@ async function displayFilteredFeedbacks(e) {
       : localStorage.getItem('sortFeedback');
 
   try {
-    const response = await fetch('/api/v1/feedbacks', {
-      method: 'GET',
-      headers: {
-        sort: sort,
-        filter: filter,
-      },
-    });
+    const response = await fetch(
+      `/api/v1/feedbacks?filter=${filter}&sort=${sort}`,
+      {
+        method: 'GET',
+      }
+    );
     const data = await response.json();
 
     allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);

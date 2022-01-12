@@ -18,13 +18,13 @@ const displayAllFeedbacks = async () => {
         ? 'all'
         : localStorage.getItem('filterFeedback');
 
-    const response = await fetch('/api/v1/feedbacks', {
-      method: 'GET',
-      headers: {
-        sort: sort,
-        filter: filter,
-      },
-    });
+    const response = await fetch(
+      `/api/v1/feedbacks?filter=${filter}&sort=${sort}`,
+      {
+        method: 'GET',
+      }
+    );
+
     const data = await response.json();
 
     allFeedback.innerHTML = createHtmlFeedback(data.feedbacks);
@@ -34,7 +34,7 @@ const displayAllFeedbacks = async () => {
     sortHandler(sort);
     filterHandler(filter);
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 

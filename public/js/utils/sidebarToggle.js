@@ -10,7 +10,7 @@ function toggleSidebar(e) {
     e.target.src = '../assets/shared/mobile/icon-close.svg';
   } else {
     sidebar.classList.remove('open');
-    sidebarBlack.classList.add('open');
+    sidebarBlack.classList.remove('open');
     body.classList.remove('stop-scrolling');
     e.target.src = '../assets/shared/mobile/icon-hamburger.svg';
   }

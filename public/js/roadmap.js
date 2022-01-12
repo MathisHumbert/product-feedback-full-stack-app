@@ -12,6 +12,7 @@ async function displayRoadmap() {
   try {
     const response = await fetch('/api/v1/feedbacks');
     const data = await response.json();
+    console.log(data);
     const feedbacks = data.feedbacks;
 
     let planned = 0;
