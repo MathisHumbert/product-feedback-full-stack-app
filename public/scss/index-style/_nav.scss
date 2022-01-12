@@ -3,7 +3,7 @@
   height: 72px;
 }
 
-.nav-logo-container {
+.nav-logo {
   width: 100%;
   height: 100%;
   padding: 0 $padding;
@@ -33,115 +33,12 @@
   }
 }
 
-.nav-sidebar {
-  position: fixed;
-  top: 72px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 3;
-  visibility: hidden;
+.nav-category {
+  display: none;
+}
 
-  &.open {
-    visibility: visible;
-  }
-
-  &-container {
-    position: fixed;
-    right: 0;
-    height: 100vh;
-    background: $color-background;
-    padding: 2rem 1rem;
-    transform: translateX(100%);
-    @include basicTransition($value: transform);
-  }
-
-  &.open &-container {
-    transform: translateX(0);
-  }
-
-  &-category,
-  &-roadmap {
-    background: $color-white;
-    border-radius: 10px;
-    padding: 2rem 1rem;
-    max-width: 233px;
-  }
-
-  &-category {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  &-roadmap {
-    margin-top: 2rem;
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-
-      h3 {
-        color: $color-special-black;
-      }
-
-      a {
-        color: $color-blue;
-        font-size: 13px;
-        font-weight: 600;
-        @include basicTransition($value: color);
-
-        &:hover {
-          color: #8397f8;
-        }
-      }
-    }
-
-    .roadmap-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      .roadmap-item {
-        display: flex;
-        justify-content: space-between;
-
-        .container {
-          display: flex;
-          gap: 10px;
-          align-items: center;
-        }
-
-        .body1 {
-          color: $color-grey;
-        }
-
-        .roadmap-number {
-          font-weight: 700;
-        }
-      }
-
-      .circle {
-        width: 8px;
-        height: 8px;
-        border-radius: 100%;
-
-        &.orange {
-          background: $color-orange;
-        }
-        &.purple {
-          background: $color-purple;
-        }
-        &.blue {
-          background: $color-light-blue;
-        }
-      }
-    }
-  }
+.nav-roadmap {
+  display: none;
 }
 
 .filter-btn {
@@ -171,7 +68,7 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  .nav-logo-container {
+  .nav-logo {
     height: 100%;
     width: calc(100% - 1rem);
     max-height: 178px;
@@ -241,7 +138,7 @@
     gap: 1rem;
   }
 
-  .nav-logo-container {
+  .nav-logo {
     height: 137px;
     width: 100%;
   }

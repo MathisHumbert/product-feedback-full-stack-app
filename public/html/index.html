@@ -20,7 +20,7 @@
       <!-- nav -->
       <nav class="home-nav">
         <!-- logo -->
-        <div class="nav-logo-container">
+        <div class="nav-logo">
           <h2>Frontend Mentor</h2>
           <p class="body2">Feedback Board</p>
           <img
@@ -29,24 +29,22 @@
             alt="sibar-cursor"
           />
         </div>
-        <!-- sidebar -->
-        <div class="nav-sidebar">
-          <div class="nav-sidebar-container">
-            <!-- category -->
-            <div class="nav-sidebar-category">
-              <button class="category-btn filter-btn">all</button>
-              <button class="category-btn filter-btn">UI</button>
-              <button class="category-btn filter-btn">UX</button>
-              <button class="category-btn filter-btn">enhancement</button>
-              <button class="category-btn filter-btn">bug</button>
-              <button class="category-btn filter-btn">feature</button>
-            </div>
-            <div class="nav-sidebar-roadmap">
+        <!-- category -->
+        <div class="nav-category category-div">
+          <button class="category-btn filter-btn">all</button>
+          <button class="category-btn filter-btn">UI</button>
+          <button class="category-btn filter-btn">UX</button>
+          <button class="category-btn filter-btn">enhancement</button>
+          <button class="category-btn filter-btn">bug</button>
+          <button class="category-btn filter-btn">feature</button>
+        </div>
+        <!-- roadmap -->
+        <div class="nav-roadmap roadmap-div">
               <div class="header">
                 <h3>Roadmap</h3>
                 <a href="roadmap.html">View</a>
               </div>
-              <!-- roadmap -->
+              
               <div class="roadmap-items">
                 <div class="roadmap-item">
                   <div class="container">
@@ -71,9 +69,50 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </nav>
+
+      <aside class="aside-sidebar">
+          <!-- category -->
+          <div class="sidebar-category category-div">
+            <button class="category-btn filter-btn">all</button>
+            <button class="category-btn filter-btn">UI</button>
+            <button class="category-btn filter-btn">UX</button>
+            <button class="category-btn filter-btn">enhancement</button>
+            <button class="category-btn filter-btn">bug</button>
+            <button class="category-btn filter-btn">feature</button>
+          </div>
+          <div class="sidebar-roadmap roadmap-div">
+            <div class="header">
+              <h3>Roadmap</h3>
+              <a href="roadmap.html">View</a>
+            </div>
+            <!-- roadmap -->
+            <div class="roadmap-items">
+              <div class="roadmap-item">
+                <div class="container">
+                  <div class="circle orange"></div>
+                  <p class="body1">Planned</p>
+                </div>
+                <p class="body1 roadmap-number planned-number"></p>
+              </div>
+              <div class="roadmap-item">
+                <div class="container">
+                  <div class="circle purple"></div>
+                  <p class="body1">In-Progress</p>
+                </div>
+                <p class="body1 roadmap-number progress-number"></p>
+              </div>
+              <div class="roadmap-item">
+                <div class="container">
+                  <div class="circle blue"></div>
+                  <p class="body1">Live</p>
+                </div>
+                <p class="body1 roadmap-number live-number"></p>
+              </div>
+            </div>
+          </div>
+      </aside>
 
       <!-- main -->
       <main>
