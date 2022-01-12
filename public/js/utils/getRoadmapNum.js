@@ -1,6 +1,6 @@
-const plannedNumber = document.querySelector('.planned-number');
-const progressNumber = document.querySelector('.progress-number');
-const liveNumber = document.querySelector('.live-number');
+const plannedNumber = document.querySelectorAll('.planned-number');
+const progressNumber = document.querySelectorAll('.progress-number');
+const liveNumber = document.querySelectorAll('.live-number');
 const suggNumber = document.querySelector('.suggestions-number');
 
 function roadmapNumberHandler(data) {
@@ -24,9 +24,9 @@ function roadmapNumberHandler(data) {
     }
   });
 
-  plannedNumber.textContent = planned;
-  progressNumber.textContent = inProgress;
-  liveNumber.textContent = live;
+  plannedNumber.forEach((item) => (item.textContent = planned));
+  progressNumber.forEach((item) => (item.textContent = inProgress));
+  liveNumber.forEach((item) => (item.textContent = live));
   suggNumber.textContent = `${sugg} Suggestions`;
 }
 

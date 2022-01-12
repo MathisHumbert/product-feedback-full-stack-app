@@ -1,9 +1,35 @@
 .aside-sidebar {
   position: fixed;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: $color-background;
+  top: 72px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  padding: 2rem 0 6rem 0;
+
+  &.open {
+    width: 271px;
+    overflow: scroll;
+  }
+}
+
+.aside-sidebar-black {
+  position: fixed;
   inset: 0;
+  top: 72px;
   z-index: -1;
   opacity: 0;
   background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
 
   &.open {
     z-index: 5;
@@ -17,6 +43,7 @@
   border-radius: 10px;
   padding: 2rem 1rem;
   max-width: 233px;
+  width: 100%;
 }
 
 .category-div {
@@ -26,8 +53,6 @@
 }
 
 .roadmap-div {
-  margin-top: 2rem;
-
   .header {
     display: flex;
     justify-content: space-between;
@@ -88,5 +113,15 @@
     &.blue {
       background: $color-light-blue;
     }
+  }
+}
+
+@include tabletScreen {
+  .aside-sidebar {
+    display: none;
+  }
+
+  .aside-sidebar-black {
+    display: none;
   }
 }

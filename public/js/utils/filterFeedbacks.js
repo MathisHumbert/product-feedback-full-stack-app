@@ -3,7 +3,9 @@ import roadmapNumberHandler from './getRoadmapNum.js';
 import upvoteHandler from './upvoteHandler.js';
 
 const filterBtn = document.querySelectorAll('.filter-btn');
-const sidebar = document.querySelector('.nav-sidebar');
+const sidebar = document.querySelector('.aside-sidebar');
+const sidebarBlack = document.querySelector('.aside-sidebar-black');
+const body = document.querySelector('body');
 const allFeedback = document.querySelector('.all-feedbacks');
 const sidebarBtn = document.querySelector('.sidebar-button');
 
@@ -13,6 +15,8 @@ async function displayFilteredFeedbacks(e) {
   filterHandler(filter);
 
   sidebar.classList.remove('open');
+  sidebarBlack.classList.remove('open');
+  body.classList.remove('stop-scrolling');
   sidebarBtn.src = '../assets/shared/mobile/icon-hamburger.svg';
   document.body.style.overflowY = 'inherit';
 
